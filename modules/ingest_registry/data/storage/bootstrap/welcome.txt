@@ -1,0 +1,2 @@
+ingest_registry bootstrap file
+This file proves the local registry is operational.

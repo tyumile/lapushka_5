@@ -19,3 +19,33 @@
 - общий фронт должен быть легким;
 - локальные модули должны оставаться автономными;
 - shell должен давать единое ощущение системы, а не ломать независимость модулей.
+
+## Команда task
+По команде `task` shell обязан:
+- сначала смотреть SQL-реестр задач как источник правды;
+- затем смотреть Google Sheets только как пользовательский дашборд;
+- показывать пользователю текущую картину задач, не подменяя собой реестр;
+- опираться только на новые записи и не изменять старые;
+- использовать ссылку на dashboard из `.env`.
+
+Где смотреть:
+- `shared/task_registry.sql`
+- `shared/task_registry.md`
+- `.env` для `GOOGLE_SHEETS_DASHBOARD_ID` и `GOOGLE_SHEETS_DASHBOARD_URL`
+
+Куда записывать:
+- в SQL-таблицу `task_registry` через `./task add ...`;
+- в Google Sheets только через `./task add ... --sync`;
+- руками в таблицу shell ничего не пишет.
+
+Команды:
+- смотреть задачи: `./task list --limit 20`
+- фиксировать наблюдение: `./task add ... --source-agent shell --sync`
+
+Обязательное правило:
+- перед пользовательским handoff читать задачи через `./task list --limit 20`;
+- после наблюдения, handoff, blocker или ошибки выполнять `./task add ... --source-agent shell --sync`;
+- не завершать работу shell без записи в реестр задач.
+
+Шаблон записи:
+`./task add --task-id <task_id> --source-agent shell --target-agent <next_agent_or_shell> --module-name shell --action-type progress --summary "<что увидел или передал>" --status <status> --artifacts "<paths>" --sync`

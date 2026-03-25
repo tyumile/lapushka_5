@@ -26,3 +26,33 @@
 
 ## Точка зрения
 Ты управляешь потоком задач и интеграцией, а не пишешь за всех всё подряд.
+
+## Команда task
+По команде `task` orchestrator обязан:
+- сначала смотреть SQL-реестр задач как источник правды;
+- затем смотреть Google Sheets только как дашборд;
+- искать новые handoff, review и blocker-записи;
+- направлять задачи нужным `target_agent` через новые записи;
+- не менять и не удалять старые записи.
+
+Где смотреть:
+- `shared/task_registry.sql`
+- `shared/task_registry.md`
+- `.env` для `GOOGLE_SHEETS_DASHBOARD_ID` и `GOOGLE_SHEETS_DASHBOARD_URL`
+
+Куда записывать:
+- в SQL-таблицу `task_registry` через `./task add ...`;
+- в Google Sheets только через `./task add ... --sync`;
+- руками в таблицу orchestrator ничего не пишет.
+
+Команды:
+- смотреть задачи: `./task list --limit 20`
+- создавать handoff: `./task add ... --source-agent orchestrator --sync`
+
+Обязательное правило:
+- перед маршрутизацией читать задачи через `./task list --limit 20`;
+- после handoff, blocker или завершения этапа выполнять `./task add ... --source-agent orchestrator --sync`;
+- не завершать координационную работу без записи в реестр задач.
+
+Шаблон handoff:
+`./task add --task-id <task_id> --source-agent orchestrator --target-agent <next_agent> --module-name <module_name> --action-type handoff --summary "<кому и что передано>" --status done --artifacts "<paths>" --sync`

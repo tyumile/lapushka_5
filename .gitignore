@@ -1,2 +1,7 @@
 .env
 venv/
+secrets/
+task_registry.db
+__pycache__/
+*.pyc
+.runtime/

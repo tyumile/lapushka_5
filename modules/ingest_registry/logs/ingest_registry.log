@@ -1,0 +1,27 @@
+2026-03-25 11:45:13,796 INFO app.bootstrap Module started on http://127.0.0.1:8101
+2026-03-25 11:46:20,888 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-25 11:47:51,564 INFO app.bootstrap Module started on http://127.0.0.1:8101
+2026-03-25 11:47:58,968 INFO app.service Stored local upload /home/dev/lapushka_5/modules/ingest_registry/data/storage/uploads/README.md
+2026-03-25 11:47:58,968 INFO ui.http 127.0.0.1 - "POST /upload HTTP/1.1" 303 -
+2026-03-25 11:48:04,514 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-25 11:51:39,618 INFO app.service Executed sync stub for google_drive
+2026-03-25 11:51:39,618 INFO ui.http 127.0.0.1 - "POST /sync/google_drive HTTP/1.1" 303 -
+2026-03-25 11:52:33,559 INFO app.bootstrap Module started on http://127.0.0.1:8101
+2026-03-25 11:52:47,861 INFO app.service Stored local upload /home/dev/lapushka_5/modules/ingest_registry/data/storage/uploads/README_1.md
+2026-03-25 11:52:47,862 INFO ui.http 127.0.0.1 - "POST /upload HTTP/1.1" 303 -
+2026-03-25 11:52:47,865 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-25 12:01:54,828 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-25 12:02:03,541 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-25 12:02:16,833 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-25 12:02:17,068 INFO ui.http 188.186.174.137 - code 404, message Page not found
+2026-03-25 12:02:17,068 INFO ui.http 188.186.174.137 - "GET /favicon.ico HTTP/1.1" 404 -
+2026-03-25 12:03:09,014 INFO app.service Executed sync stub for google_drive
+2026-03-25 12:03:09,015 INFO ui.http 188.186.174.137 - "POST /sync/google_drive HTTP/1.1" 303 -
+2026-03-25 12:03:09,090 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-25 12:44:44,715 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-25 12:46:35,961 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-25 12:46:42,319 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-25 12:47:32,549 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-25 12:47:39,832 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-25 12:48:14,058 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-25 12:49:04,252 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -

@@ -1,5 +1,8 @@
+from app.bootstrap import bootstrap_and_run
+
+
 def main() -> None:
-    print("Starting project_builder...")
+    bootstrap_and_run()
 
 
 if __name__ == "__main__":

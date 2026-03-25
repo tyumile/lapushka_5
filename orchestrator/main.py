@@ -1,5 +1,9 @@
+from app.bootstrap import create_orchestrator
+
+
 def main() -> None:
-    print("Starting orchestrator...")
+    orchestrator = create_orchestrator()
+    print(orchestrator.render_summary())
 
 
 if __name__ == "__main__":

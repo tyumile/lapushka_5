@@ -38,6 +38,13 @@
 - Предпочтительны короткие функции и явные имена.
 - Любой новый файл должен быть отражен в `README.md` модуля.
 
+## Политика запуска модулей
+- Process-модули должны запускаться через `./modulectl`, а не произвольными командами.
+- Перед новым запуском агент обязан проверить `./modulectl status <module_name>`.
+- Если модуль уже запущен, нельзя поднимать второй процесс на том же порту.
+- Для проверки доступности использовать `./modulectl health <module_name>`.
+- Для перезапуска использовать `./modulectl restart <module_name>`.
+
 ## Политика по UI
 - UI каждого модуля должен быть минимальным и рабочим.
 - UI должен показывать только полезные действия и результат.
@@ -73,6 +80,61 @@
 - Агент может только добавлять новую запись о своем действии, результате или замечании.
 - Агент не меняет и не удаляет старые записи.
 - Любая проверка, замечание или handoff должны фиксироваться новой записью.
+
+## Команда task
+По команде `task` любой агент обязан работать в следующем порядке:
+- сначала смотреть SQL-реестр задач как источник правды;
+- затем смотреть Google Sheets только как пользовательский дашборд;
+- искать задачи по своему модулю, `target_agent` или связанному `task_id`;
+- при старте работы добавлять новую запись со статусом `in_progress`;
+- при завершении, review, handoff, блокере или ошибке добавлять новую запись с новым статусом;
+- не изменять и не удалять старые записи.
+
+Где смотреть:
+- SQL-схема и правила: `shared/task_registry.sql` и `shared/task_registry.md`;
+- Google Sheets dashboard: ссылка и id берутся из `.env` или `.env.example`.
+
+Куда записывать:
+- основная запись всегда идет в SQL-таблицу `task_registry` через команду `./task add ...`;
+- зеркало для пользователя пополняется этой же командой через флаг `--sync`;
+- вручную в Google Sheets агент ничего не пишет и не редактирует.
+
+Что именно заполнять:
+- `task_id`: стабильный id одной задачи, одинаковый для всех записей по этой задаче;
+- `source_agent`: агент, который создает текущую запись;
+- `target_agent`: агент, которому адресован следующий шаг, либо тот же агент;
+- `module_name`: имя модуля, к которому относится работа;
+- `action_type`: `start`, `progress`, `handoff`, `review`, `done`, `blocked` или `error`;
+- `summary`: одна короткая понятная фраза о результате действия;
+- `status`: `todo`, `in_progress`, `done`, `reviewed`, `blocked` или `failed`;
+- `artifacts`: пути файлов, URL, id, заметки или список артефактов одной строкой;
+- `created_at`: ставится автоматически, если не передан явно.
+
+Рабочие команды:
+- посмотреть последние записи: `./task list --limit 20`
+- посмотреть задачи модуля: `./task list --module-name <module_name> --limit 20`
+- посмотреть задачи reviewer-а: `./task list --target-agent <agent_name> --limit 20`
+- добавить запись и сразу синхронизировать dashboard:
+  `./task add --task-id <task_id> --source-agent <source_agent> --target-agent <target_agent> --module-name <module_name> --action-type <action_type> --summary "<summary>" --status <status> --artifacts "<artifacts>" --sync`
+
+Правило завершения:
+- после завершения своей задачи, handoff, review, blocker или ошибки агент должен запускать `./task add ... --sync`
+
+Обязательное исполнение:
+- агент не должен считать задачу начатой, пока не посмотрел записи через `./task list ...`;
+- агент не должен считать задачу завершенной, пока не выполнил `./task add ... --sync`;
+- агент не должен отдавать финальный результат пользователю без записи результата в SQL-реестр и синхронизации в Google Sheets;
+- если синхронизация не удалась, агент обязан явно сообщить об этом как о блокере и зафиксировать это отдельной записью при первой возможности.
+
+Готовые шаблоны:
+- process-модуль начал работу:
+  `./task add --task-id <task_id> --source-agent <module_name> --target-agent <module_name> --module-name <module_name> --action-type start --summary "<что начато>" --status in_progress --artifacts "<paths>" --sync`
+- process-модуль передает в review:
+  `./task add --task-id <task_id> --source-agent <module_name> --target-agent <reviewer_name> --module-name <module_name> --action-type handoff --summary "<что готово к проверке>" --status done --artifacts "<paths>" --sync`
+- reviewer завершил проверку:
+  `./task add --task-id <task_id> --source-agent <reviewer_name> --target-agent <module_name> --module-name <module_name> --action-type review --summary "<итог проверки>" --status reviewed --artifacts "<paths>" --sync`
+- любой агент сообщает о блокере:
+  `./task add --task-id <task_id> --source-agent <agent_name> --target-agent <agent_name> --module-name <module_name> --action-type blocked --summary "<что мешает работе>" --status blocked --artifacts "<details>" --sync`
 
 ## Политика по безопасности
 - Не выводить секреты в логи.

@@ -1,5 +1,9 @@
+from app.bootstrap import create_server
+
+
 def main() -> None:
-    print("Starting ingest_registry...")
+    server = create_server()
+    server.serve_forever()
 
 
 if __name__ == "__main__":

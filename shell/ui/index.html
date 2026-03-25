@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lapushka 5 Shell</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell-home">
+      <section class="hero">
+        <p class="eyebrow">Lapushka 5</p>
+        <h1>Общий вход в систему автономных модулей</h1>
+        <p class="lead">
+          Shell задает единый стиль и навигацию, но не переносит к себе бизнес-логику
+          и не переписывает локальные интерфейсы модулей.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Роль shell</h2>
+          <span class="tag">front layer</span>
+        </div>
+        <ul class="list">
+          <li>дает одну стартовую точку входа в систему;</li>
+          <li>ведет пользователя к локальным UI автономных модулей;</li>
+          <li>показывает общую картину без захвата роли оркестратора.</li>
+        </ul>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Принципы навигации</h2>
+          <ul class="list">
+            <li>каждый модуль открывается как отдельная локальная страница;</li>
+            <li>shell хранит только ссылки и краткие пояснения;</li>
+            <li>переходы остаются прямыми и прозрачными.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Границы shell</h2>
+          <ul class="list">
+            <li>не заменяет process-модули;</li>
+            <li>не оркестрирует их внутреннюю работу;</li>
+            <li>не изменяет локальные страницы вместо владельцев модулей.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Точки входа модулей</h2>
+          <span class="tag">stub</span>
+        </div>
+        <p class="muted">
+          На этом этапе shell подготавливает место для ссылок на локальные UI. Подключение
+          конкретных модулей добавляется отдельными минимальными изменениями без переноса их логики.
+        </p>
+        <div class="entry-list">
+          <a class="entry disabled" href="#" aria-disabled="true">
+            <strong>Модуль будет подключен отдельно</strong>
+            <span>Shell показывает только точку входа и краткое описание</span>
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

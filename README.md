@@ -44,3 +44,18 @@ Lapushka 5 — модульная система для загрузки, син
 
 ## Стадия
 На текущем этапе это стартовый каркас проекта.
+
+## Запуск модулей
+Для стабильного локального запуска process-модулей используйте единый контроллер:
+- `./modulectl start ingest_registry`
+- `./modulectl start doc_classifier`
+- `./modulectl start project_builder`
+- `./modulectl status <module_name>`
+- `./modulectl health <module_name>`
+- `./modulectl stop <module_name>`
+
+Контроллер:
+- использует фиксированные порты из `.env`;
+- хранит pid-файлы и логи в `.runtime/`;
+- не запускает второй процесс поверх уже работающего;
+- помогает агентам запускать модули одинаково.
