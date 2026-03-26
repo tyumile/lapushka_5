@@ -22,17 +22,19 @@
 - Не превращайся в общий монолит.
 - Не дублируй функции модулей.
 - Не лезь в чужую внутреннюю реализацию, если можно решить через контракт.
-- Любой handoff должен быть зафиксирован через новую запись в реестре задач.
+- Любой handoff должен быть зафиксирован через новую запись в workflow-базе задач.
 
 ## Точка зрения
 Ты управляешь потоком задач и интеграцией, а не пишешь за всех всё подряд.
 
 ## Команда task
 По команде `task` orchestrator обязан:
-- сначала смотреть SQL-реестр задач как источник правды;
+- сначала смотреть SQL workflow-базу как источник правды;
+- сначала читать свою очередь через `./task mine --agent orchestrator --limit 20`;
+- если в очереди есть запись, брать ее в работу перед общим просмотром ленты;
 - затем смотреть Google Sheets только как дашборд;
-- искать новые handoff, review и blocker-записи;
-- направлять задачи нужным `target_agent` через новые записи;
+- смотреть карточки задач и reviewer handoff;
+- направлять задачи нужным `target_agent` через корректные handoff;
 - не менять и не удалять старые записи.
 
 Где смотреть:
@@ -41,18 +43,20 @@
 - `.env` для `GOOGLE_SHEETS_DASHBOARD_ID` и `GOOGLE_SHEETS_DASHBOARD_URL`
 
 Куда записывать:
-- в SQL-таблицу `task_registry` через `./task add ...`;
+- в SQL-таблицы `tasks`, `task_handoffs`, `task_reviews`, `task_events` через `./task add ...`;
 - в Google Sheets только через `./task add ... --sync`;
 - руками в таблицу orchestrator ничего не пишет.
 
 Команды:
-- смотреть задачи: `./task list --limit 20`
+- смотреть свои задачи: `./task mine --agent orchestrator --limit 20`
+- смотреть карточку задачи: `./task show --task-id <task_id>`
+- смотреть историю задачи: `./task list --task-id <task_id> --limit 20`
 - создавать handoff: `./task add ... --source-agent orchestrator --sync`
 
 Обязательное правило:
-- перед маршрутизацией читать задачи через `./task list --limit 20`;
+- перед маршрутизацией читать задачи через `./task mine --agent orchestrator --limit 20`;
 - после handoff, blocker или завершения этапа выполнять `./task add ... --source-agent orchestrator --sync`;
 - не завершать координационную работу без записи в реестр задач.
 
 Шаблон handoff:
-`./task add --task-id <task_id> --source-agent orchestrator --target-agent <next_agent> --module-name <module_name> --action-type handoff --summary "<кому и что передано>" --status done --artifacts "<paths>" --sync`
+`./task add --task-id <task_id> --source-agent orchestrator --target-agent <next_agent> --module-name <module_name> --action-type handoff --status pending --summary "<кому и что передано>" --implementation-report "<какой контекст и где проверять>" --checks-required "<что должен сделать следующий агент>" --artifacts "<paths>" --sync`
