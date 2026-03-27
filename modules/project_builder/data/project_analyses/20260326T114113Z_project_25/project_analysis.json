@@ -1,0 +1,141 @@
+{
+  "project": {
+    "project_document_id": "25",
+    "project_file_name": "1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf",
+    "project_file_path": "/home/dev/lapushka_5/modules/doc_classifier/data/tmp/downloads/1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf",
+    "project_code": "1562-ЧАР-2-К1.3-Р-ЭОМ",
+    "project_name": "Комплексная многоэтажная жилая застройка с наземными паркингами, объектами социальной инфраструктуры в границах улиц Тимофея Чаркова, г. Тюмень. 2 очередь строительства.",
+    "analysis_summary": "Проект представляет собой рабочую документацию по электрооборудованию и электроосвещению жилого дома, многосекционное 4-секционное здание с 17 этажами в каждой секции. Указаны технические характеристики нагрузок, разделение электрооборудования по категориям надежности, описание прокладки силовых и распределительных кабелей, применение медного и алюминиевого кабеля, конструкция этажных щитков ЩЛС и квартирных щитков ЩК. Используемые материалы и нормы явно прописаны.",
+    "analysis_notes": "В проекте явных делений на корпуса нет, однако выделены секции №1-4 и этажность 17 этажей. Для анализа взят модуль здания в целом с выделением секций. Материалы преимущественно кабельные изделия, трубы, электрощитовое оборудование. Нормативы указаны основным образом как СП 256.1325800.2016 с изменениями, ПУЭ, СП 6.13130.2021. Материалы сопоставлены с кандидатами документов по именам и соответствующим темам."
+  },
+  "modules": [
+    {
+      "module_id": "module_building_whole",
+      "module_name": "Комплексная многоэтажная жилая застройка, 4 секции, 17 этажей",
+      "module_type": "building",
+      "building": "жилой дом",
+      "section": "1, 2, 3, 4",
+      "floor": "все",
+      "discipline": "Электрооборудование и электроосвещение",
+      "source_reference": {
+        "page": "3",
+        "sheet": "1",
+        "quote": "Жилой дом - 4-х секционное здание с техподпольем. Секции №1, 2, 3, 4 по 17 этажей."
+      },
+      "materials": [
+        {
+          "material_name": "Кабель с алюминиевыми жилами марок 8030 и 8176",
+          "document_name": "6,11 эмаль.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "1",
+            "quote": "Применяется кабельная продукция из алюминиевых сплавов 8030 и 8176 во всех линиях"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/6,11 эмаль.pdf",
+          "document_registry_id": "29",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Названия материала и документа совпадают, документ '6,11 эмаль.pdf' относится к кабельной продукции"
+        },
+        {
+          "material_name": "Кабель с медными жилами марки ВВГнг(А)-FRLS",
+          "document_name": "2 кабель ВВГнг.jpg",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "1",
+            "quote": "Вертикальные участки КП СПЗ кабелем с медными жилами и огнестойким негорючим изоляционным покрытием ВВГнг(А)-FRLS"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/2 кабель ВВГнг.jpg",
+          "document_registry_id": "26",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал кабеля ВВГнг(А)-FRLS представлен в документе '2 кабель ВВГнг.jpg'"
+        },
+        {
+          "material_name": "Кабель с медными жилами марки ВВГнг(А)-LS и АсВВГнг(А)-LS",
+          "document_name": "7,8 Силовые кабели.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "1",
+            "quote": "Вертикальные участки остальных потребителей 1-ой и II-ой категорий - кабелем с медными жилами и негорючим изоляционным покрытием ВВГнг(А)-LS и АсВВГнг(А)-LS"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/7,8 Силовые кабели.pdf",
+          "document_registry_id": "30",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Документ '7,8 Силовые кабели.pdf' содержит описание силовых кабелей, соответствующих упомянутым маркам."
+        },
+        {
+          "material_name": "Труба гофрированная ПВХ лёгкой серии ∅20, ∅32",
+          "document_name": "3,4 труба гофрированная.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "1",
+            "quote": "Используются гофрированные ПВХ трубы лёгкой серии ∅20 в электрошитовых, венткамере, насосной и ∅32 при прокладке кабеля от этажного щитка до квартирного щитка"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/3,4 труба гофрированная.pdf",
+          "document_registry_id": "27",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Документ '3,4 труба гофрированная.pdf' соответствует описываемому материалу - гофрированной трубе."
+        },
+        {
+          "material_name": "Металлический кабельный лоток",
+          "document_name": "12,13 лоток крышка.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "1",
+            "quote": "В техническом подполье прокладка по металлическим лоткам открыто"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 лоток крышка.pdf",
+          "document_registry_id": "22",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Документ '12,13 лоток крышка.pdf' соотносится с металлическими лотками, применяемыми в проекте."
+        }
+      ],
+      "norms": [
+        {
+          "norm_name": "СП 256.1325800.2016 с изм. 4 от 6.04.2021",
+          "project_source": {
+            "page": "3",
+            "sheet": "1",
+            "quote": "Нагрузки жилого дома определены в соответствии с разделом 7.1 СП 256.1325800.2016 с изм. 4 от 6.04.2021"
+          }
+        },
+        {
+          "norm_name": "ПУЭ",
+          "project_source": {
+            "page": "3",
+            "sheet": "1",
+            "quote": "Соответствие требованиям ПУЭ и СП 256.1325800.2016 по степени обеспечения надёжности электроснабжения"
+          }
+        },
+        {
+          "norm_name": "СП 6.13130.2021",
+          "project_source": {
+            "page": "3",
+            "sheet": "1",
+            "quote": "применение  панелей и щитков с аппаратурой АВР в соответствии с п. 6.13 и п. 8.12.8 СП 256.1325800.2016, п. 4.10 СП 6.13130.2021"
+          }
+        }
+      ]
+    }
+  ],
+  "unmatched_documents": [],
+  "analysis_warnings": [
+    "В проекте не указаны точные номера документов ГОСТ или СНиП, использованы только СП и ПУЭ.",
+    "Структура проекта не разделена по этажам в явном виде, поэтому выделен модуль всего жилого здания.",
+    "Некоторые материалы описаны общо (например, кабельные марки 8030, 8176) без точной ссылки на конкретные ГОСТы."
+  ]
+}

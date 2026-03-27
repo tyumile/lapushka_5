@@ -1,5 +1,9 @@
+from app.reviewer import build_default_policy
+
+
 def main() -> None:
-    print("Starting frontend_reviewer...")
+    policy = build_default_policy()
+    print(policy.to_text())
 
 
 if __name__ == "__main__":

@@ -25,3 +25,279 @@
 2026-03-25 12:47:39,832 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
 2026-03-25 12:48:14,058 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
 2026-03-25 12:49:04,252 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:01:41,850 INFO app.bootstrap Module started on http://0.0.0.0:8101
+2026-03-26 10:04:54,674 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:14:44,500 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:15:42,044 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 10:15:49,321 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:16:04,710 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:16:04,876 INFO ui.http 188.186.174.137 - code 404, message Page not found
+2026-03-26 10:16:04,877 INFO ui.http 188.186.174.137 - "GET /favicon.ico HTTP/1.1" 404 -
+2026-03-26 10:16:29,601 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:18:11,853 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:26:00,235 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:31:44,571 INFO ui.http 64.62.156.10 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:32:07,740 INFO ui.http 64.62.156.19 - code 404, message Page not found
+2026-03-26 10:32:07,740 INFO ui.http 64.62.156.19 - "GET /favicon.ico HTTP/1.1" 404 -
+2026-03-26 10:32:31,061 INFO ui.http 64.62.156.23 - code 404, message Page not found
+2026-03-26 10:32:31,062 INFO ui.http 64.62.156.23 - "GET http://api.ipify.org/?format=json HTTP/1.1" 404 -
+2026-03-26 10:32:39,935 INFO ui.http 64.62.156.14 - code 501, message Unsupported method ('CONNECT')
+2026-03-26 10:32:39,936 INFO ui.http 64.62.156.14 - "CONNECT www.shadowserver.org:443 HTTP/1.1" 501 -
+2026-03-26 10:40:34,768 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 10:40:34,809 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 10:40:40,974 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:41:40,313 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 10:41:40,320 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 10:41:48,793 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:43:43,760 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:44:06,705 INFO ui.http 127.0.0.1 - "POST /sources/add HTTP/1.1" 303 -
+2026-03-26 10:46:12,684 INFO ui.http 127.0.0.1 - "POST /sources/add HTTP/1.1" 303 -
+2026-03-26 10:46:16,122 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:46:21,575 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:47:04,463 INFO app.service Sync completed for source_id=2 type=google_drive
+2026-03-26 10:47:04,463 INFO ui.http 188.186.174.137 - "POST /sync/2 HTTP/1.1" 303 -
+2026-03-26 10:47:04,543 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:48:55,368 INFO app.service Sync completed for source_id=2 type=google_drive
+2026-03-26 10:48:55,368 INFO ui.http 127.0.0.1 - "POST /sync/2 HTTP/1.1" 303 -
+2026-03-26 10:50:16,019 INFO app.service Sync completed for source_id=3 type=yandex_disk
+2026-03-26 10:50:16,020 INFO ui.http 127.0.0.1 - "POST /sync/3 HTTP/1.1" 303 -
+2026-03-26 10:50:19,067 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:55:17,315 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 10:55:17,359 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 10:55:32,844 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:55:46,682 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 10:57:13,215 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:15:44,070 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 11:15:44,076 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 11:22:33,510 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 11:22:33,560 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 11:22:39,772 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:25:17,085 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:27:01,720 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:31:09,351 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:31:17,363 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:31:19,695 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 11:31:19,695 INFO ui.http 188.186.174.137 - "POST /sync/1 HTTP/1.1" 303 -
+2026-03-26 11:31:19,771 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:32:47,902 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 11:32:47,947 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 11:32:56,377 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:33:50,837 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:37:03,791 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 11:37:03,800 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 11:37:12,214 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:37:35,262 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:37:46,729 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:37:58,655 INFO ui.http 188.186.174.137 - "GET /?source=google_drive HTTP/1.1" 200 -
+2026-03-26 11:38:01,112 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:39:58,513 INFO ui.http 127.0.0.1 - "GET /?source=local_upload HTTP/1.1" 200 -
+2026-03-26 11:40:55,515 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:41:56,657 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:48:53,915 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:49:33,024 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:49:34,601 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:50:42,662 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:52:49,402 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 11:52:49,406 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 11:54:13,931 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 11:54:15,273 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:02:20,281 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:02:48,862 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:07:07,835 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 12:07:07,855 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 12:07:21,291 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:08:03,746 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 12:08:03,750 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 12:08:14,038 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:14:59,080 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:15:04,464 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:15:12,397 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:16:36,547 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 12:16:36,552 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 12:16:38,073 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:16:40,892 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:16:44,344 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:20:27,084 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:24:43,999 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:26:19,572 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 12:26:19,612 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 12:30:45,629 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:32:14,772 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:36:36,815 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:39:11,042 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-26 12:39:11,047 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-26 12:39:19,282 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:52:46,874 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:53:47,956 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:54:05,366 INFO ui.http 127.0.0.1 - "GET /?source=google_drive HTTP/1.1" 200 -
+2026-03-26 12:54:06,948 INFO ui.http 127.0.0.1 - "GET /?source=yandex_disk HTTP/1.1" 200 -
+2026-03-26 12:54:08,873 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:58:07,893 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-26 12:58:10,434 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-26 13:49:20,072 INFO ui.http 147.185.132.116 - code 400, message Bad request version ('À\x13À')
+2026-03-26 13:49:20,072 INFO ui.http 147.185.132.116 - "Æ ÂñØ0É·d*lúÐ!ÁàL«Q.êÙØÞã?²£Lìß í³¡·ãÏ|@/ÿFí$¶`²]K2+¡ À+À/À,À0Ì©Ì¨À	ÀÀ" 400 -
+2026-03-26 13:49:20,270 INFO ui.http 147.185.132.116 - code 400, message Bad request version ('À(À$À\x14À')
+2026-03-26 13:49:20,270 INFO ui.http 147.185.132.116 - " Ê  ÆÝàÉùuvÈ¿·N¼£F7Öüª1âÕ1Ô  hÌÌÀ/À+À0À,ÀÀÀ'À#ÀÀ	À(À$ÀÀ" 400 -
+2026-03-26 16:34:28,022 INFO ui.http 103.203.58.4 - "GET / HTTP/1.1" 200 -
+2026-03-26 17:08:45,038 INFO ui.http 89.204.88.196 - "GET / HTTP/1.1" 200 -
+2026-03-26 17:08:45,419 INFO ui.http 89.204.88.196 - code 404, message Page not found
+2026-03-26 17:08:45,419 INFO ui.http 89.204.88.196 - "GET /favicon.ico HTTP/1.1" 404 -
+2026-03-26 17:09:06,236 INFO ui.http 89.204.88.196 - "GET / HTTP/1.1" 200 -
+2026-03-26 17:09:22,253 INFO ui.http 89.204.88.196 - "GET /?source=google_drive HTTP/1.1" 200 -
+2026-03-26 17:19:01,773 INFO ui.http 20.163.15.141 - code 400, message Bad request version ('À\x14À')
+2026-03-26 17:19:01,774 INFO ui.http 20.163.15.141 - " {  wÞ£ÈßÎ³R ¡A¨êoYJ½R,¤Ó£¹UÝzè  À/À+ÀÀÀÀ	ÀÀ" 400 -
+2026-03-26 17:19:02,088 INFO ui.http 20.163.15.141 - code 400, message Bad request syntax ('MGLNDD_64.188.60.73_8001')
+2026-03-26 17:19:02,088 INFO ui.http 20.163.15.141 - "MGLNDD_64.188.60.73_8001" 400 -
+2026-03-26 22:02:44,070 INFO ui.http 199.45.155.108 - code 400, message Bad request version ('À\x14À')
+2026-03-26 22:02:44,070 INFO ui.http 199.45.155.108 - " î  êxIÇÔÆÆäVºýÔÛµþ±¶â½(OÑ[ Ò	²I7VÎ3øÓZG*<ý78·yQýõìÇsa@¯Û &Ì¨Ì©À/À0À+À,ÀÀ	ÀÀ" 400 -
+2026-03-26 22:02:47,694 INFO ui.http 199.45.155.108 - "GET / HTTP/1.1" 200 -
+2026-03-26 22:02:53,370 INFO ui.http 199.45.155.108 - code 400, message Bad request version ('À\x14À')
+2026-03-26 22:02:53,370 INFO ui.http 199.45.155.108 - " î  êH¶ôÔé+bd®_{Eüh&ó³LÔj?S£Å ÕX8\fÈb¯jé,ô_-ÊÍ".}F÷wsx¡Ø¦ &Ì¨Ì©À/À0À+À,ÀÀ	ÀÀ" 400 -
+2026-03-26 22:02:54,106 INFO ui.http 199.45.155.108 - "GET / HTTP/1.1" 200 -
+2026-03-26 22:02:55,042 INFO ui.http 199.45.155.108 - code 505, message Invalid HTTP version (2.0)
+2026-03-26 22:02:55,042 INFO ui.http 199.45.155.108 - "PRI * HTTP/2.0" 505 -
+2026-03-26 22:02:55,690 INFO ui.http 199.45.155.108 - code 404, message Page not found
+2026-03-26 22:02:55,690 INFO ui.http 199.45.155.108 - "GET /favicon.ico HTTP/1.1" 404 -
+2026-03-26 22:03:00,258 INFO ui.http 199.45.155.108 - code 400, message Bad request version ('À\x14À')
+2026-03-26 22:03:00,258 INFO ui.http 199.45.155.108 - " î  êB3pÀgpÇ^¼OÝH.¶5Y(X»wMÌnïÿÒ¶¹ EeíPÜÂÇë:É]±1õ;õÐÚêp¢>f &Ì¨Ì©À/À0À+À,ÀÀ	ÀÀ" 400 -
+2026-03-26 22:03:02,202 INFO ui.http 199.45.155.108 - code 404, message Page not found
+2026-03-26 22:03:02,202 INFO ui.http 199.45.155.108 - "GET /.well-known/security.txt HTTP/1.1" 404 -
+2026-03-27 04:33:15,569 INFO ui.http 91.231.89.213 - code 400, message Bad request version ('À#À¬À®À+À')
+2026-03-27 04:33:15,570 INFO ui.http 91.231.89.213 - "¥ ¡zº4&@vRBSöoÿ®»üòK ÑÈAú}/nê Q³c/"	ø­²t#+-ª'Ë=û`q¹?ò`   3 gÀÀ¢  9 kÀÀ£  E ¾  Ä ÀÀ	À#À¬À®À+À" 400 -
+2026-03-27 04:33:18,951 INFO ui.http 91.231.89.214 - "GET / HTTP/1.1" 200 -
+2026-03-27 04:35:11,649 INFO ui.http 91.231.89.195 - code 404, message Page not found
+2026-03-27 04:35:11,649 INFO ui.http 91.231.89.195 - "GET /favicon.ico HTTP/1.1" 404 -
+2026-03-27 05:24:35,702 INFO ui.http 3.134.216.108 - "GET / HTTP/1.1" 200 -
+2026-03-27 05:26:15,342 INFO ui.http 3.134.216.108 - "GET / HTTP/1.1" 200 -
+2026-03-27 05:27:36,381 INFO ui.http 3.134.216.108 - code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00{\x01\x00\x00w\x03\x03(Ù"8ÚH\x93\x0ev5Ù¢ÇYf\x8b6\x1bÜ\x83±á[ýl\x14\x04ìdª§¨\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+2026-03-27 05:27:36,381 INFO ui.http 3.134.216.108 - " {  w(Ù"8ÚHv5Ù¢ÇYf6Ü±á[ýlìdª§¨  À/À+ÀÀÀÀ	ÀÀ" 400 -
+2026-03-27 05:29:36,722 INFO ui.http 3.134.216.108 - code 400, message Bad request syntax ('SSH-2.0-Go')
+2026-03-27 05:29:36,722 INFO ui.http 3.134.216.108 - "SSH-2.0-Go" 400 -
+2026-03-27 05:31:40,486 INFO ui.http 3.134.216.108 - code 400, message Bad request version ('ò\xad\x9f¼!\x94¢\x8c«')
+2026-03-27 05:31:40,486 INFO ui.http 3.134.216.108 - " {  wBÒµ %¹d ]¦AGÝ ò­¼!¢«" 400 -
+2026-03-27 05:42:09,874 INFO ui.http 64.62.197.32 - "GET / HTTP/1.1" 200 -
+2026-03-27 05:42:45,978 INFO ui.http 64.62.197.43 - code 404, message Page not found
+2026-03-27 05:42:45,978 INFO ui.http 64.62.197.43 - "GET /favicon.ico HTTP/1.1" 404 -
+2026-03-27 05:43:15,236 INFO ui.http 64.62.197.36 - code 501, message Unsupported method ('CONNECT')
+2026-03-27 05:43:15,236 INFO ui.http 64.62.197.36 - "CONNECT www.shadowserver.org:443 HTTP/1.1" 501 -
+2026-03-27 09:11:48,991 INFO ui.http 20.98.128.111 - "GET / HTTP/1.1" 200 -
+2026-03-27 09:11:49,354 INFO ui.http 20.98.128.111 - code 400, message Bad request syntax ('MGLNDD_64.188.60.73_8001')
+2026-03-27 09:11:49,355 INFO ui.http 20.98.128.111 - "MGLNDD_64.188.60.73_8001" 400 -
+2026-03-27 09:29:01,869 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-27 09:29:02,139 INFO ui.http 188.186.174.137 - code 404, message Page not found
+2026-03-27 09:29:02,139 INFO ui.http 188.186.174.137 - "GET /favicon.ico HTTP/1.1" 404 -
+2026-03-27 09:30:17,284 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-27 09:30:20,677 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-27 09:39:49,003 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 09:39:49,004 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 09:41:03,879 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 09:41:10,955 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 09:41:27,762 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 09:44:10,516 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:03:05,591 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-27 10:03:05,594 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-27 10:03:19,591 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-27 10:03:40,954 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-27 10:03:40,957 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-27 10:03:58,535 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:04:55,265 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:06:57,442 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:11:54,954 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-27 10:11:54,959 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-27 10:15:11,076 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=default HTTP/1.1" 200 -
+2026-03-27 10:15:28,613 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:19:57,544 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=test HTTP/1.1" 200 -
+2026-03-27 10:20:00,723 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:26:05,450 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:27:36,791 INFO ui.http 64.188.60.73 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:28:20,138 INFO ui.http 64.188.60.73 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:28:21,651 INFO ui.http 64.188.60.73 - "GET /?cabinet_id=default&density=compact HTTP/1.1" 200 -
+2026-03-27 10:28:21,672 INFO ui.http 64.188.60.73 - "GET /?cabinet_id=default&source_id=1 HTTP/1.1" 200 -
+2026-03-27 10:28:21,693 INFO ui.http 64.188.60.73 - "GET /?cabinet_id=default&sort=size_desc HTTP/1.1" 200 -
+2026-03-27 10:29:27,194 INFO ui.http 64.188.60.73 - code 400, message Нужно указать ссылку на папку
+2026-03-27 10:29:27,194 INFO ui.http 64.188.60.73 - "POST /sources/add?cabinet_id=default HTTP/1.1" 400 -
+2026-03-27 10:29:27,212 INFO ui.http 64.188.60.73 - code 400, message Нужно указать ссылку на папку
+2026-03-27 10:29:27,212 INFO ui.http 64.188.60.73 - "POST /sources/add?cabinet_id=default HTTP/1.1" 400 -
+2026-03-27 10:29:29,747 INFO ui.http 64.188.60.73 - code 400, message File is required
+2026-03-27 10:29:29,747 INFO ui.http 64.188.60.73 - "POST /upload?cabinet_id=default HTTP/1.1" 400 -
+2026-03-27 10:30:54,140 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:30:59,635 INFO ui.http 64.188.60.73 - code 400, message Нужно указать ссылку на папку
+2026-03-27 10:30:59,635 INFO ui.http 64.188.60.73 - "POST /sources/add?cabinet_id=default HTTP/1.1" 400 -
+2026-03-27 10:33:21,514 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:33:27,334 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:33:34,284 INFO ui.http 127.0.0.1 - "GET / HTTP/1.1" 200 -
+2026-03-27 10:35:02,380 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=cabinet HTTP/1.1" 200 -
+2026-03-27 10:35:04,368 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:38:10,172 INFO app.service Sync completed for source_id=1 type=local_upload
+2026-03-27 10:38:10,177 INFO app.bootstrap Module started on http://0.0.0.0:8001
+2026-03-27 10:40:36,764 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:40:42,950 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:43:25,980 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:43:29,284 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:49:30,100 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:49:54,588 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:50:08,293 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:50:19,850 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:50:44,112 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:51:08,145 INFO app.service Sync completed for source_id=4 type=google_drive
+2026-03-27 10:51:08,145 INFO ui.http 127.0.0.1 - "POST /sources/add?cabinet_id=111 HTTP/1.1" 303 -
+2026-03-27 10:51:38,030 INFO app.service Sync completed for source_id=4 type=google_drive
+2026-03-27 10:51:38,031 INFO ui.http 64.188.60.73 - "POST /sources/add?cabinet_id=111 HTTP/1.1" 303 -
+2026-03-27 10:51:38,039 INFO ui.http 64.188.60.73 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:54:01,203 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:54:16,562 INFO ui.http 127.0.0.1 - "GET /?density=compact&cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:54:19,008 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:54:21,655 INFO ui.http 127.0.0.1 - "GET /?density=compact&cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:54:24,207 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:54:37,289 INFO app.service Sync completed for source_id=4 type=google_drive
+2026-03-27 10:54:37,289 INFO ui.http 127.0.0.1 - "POST /sync/4?cabinet_id=111 HTTP/1.1" 303 -
+2026-03-27 10:54:43,149 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:54:53,062 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:55:02,039 INFO ui.http 64.188.60.73 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:55:06,663 INFO ui.http 127.0.0.1 - "GET /?source=google_drive&cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:55:06,697 INFO ui.http 127.0.0.1 - "GET /?density=compact&cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 10:55:06,722 INFO ui.http 127.0.0.1 - "GET /?sort=source&cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:00:33,536 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:01:23,619 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:01:26,103 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:01:42,476 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:02:16,896 INFO app.service Sync completed for source_id=4 type=google_drive
+2026-03-27 11:02:16,896 INFO ui.http 127.0.0.1 - "POST /sources/add?cabinet_id=111 HTTP/1.1" 303 -
+2026-03-27 11:02:17,629 INFO app.service Sync completed for source_id=4 type=google_drive
+2026-03-27 11:02:17,629 INFO ui.http 127.0.0.1 - "POST /sync/4?cabinet_id=111 HTTP/1.1" 303 -
+2026-03-27 11:02:58,542 INFO ui.http 127.0.0.1 - code 404, message Action not found
+2026-03-27 11:02:58,544 INFO ui.http 127.0.0.1 - "POST /add?cabinet_id=111 HTTP/1.1" 404 -
+2026-03-27 11:05:34,676 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:06:31,500 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:06:48,578 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:06:56,651 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:09:16,932 INFO app.service Sync completed for source_id=4 type=google_drive
+2026-03-27 11:09:16,932 INFO ui.http 127.0.0.1 - "POST /sources/add?cabinet_id=111 HTTP/1.1" 303 -
+2026-03-27 11:11:13,705 INFO app.service Sync completed for source_id=4 type=google_drive
+2026-03-27 11:11:13,706 INFO ui.http 127.0.0.1 - "POST /sources/add?cabinet_id=111 HTTP/1.1" 303 -
+2026-03-27 11:16:59,861 INFO app.service Sync completed for source_id=4 type=google_drive
+2026-03-27 11:16:59,863 INFO ui.http 127.0.0.1 - "POST /sources/add?cabinet_id=111 HTTP/1.1" 303 -
+2026-03-27 11:17:41,024 INFO app.service Sync completed for source_id=4 type=google_drive
+2026-03-27 11:17:41,024 INFO ui.http 127.0.0.1 - "POST /sources/add?cabinet_id=111 HTTP/1.1" 303 -
+2026-03-27 11:19:38,694 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:20:23,374 INFO app.service Sync completed for source_id=4 type=google_drive
+2026-03-27 11:20:23,374 INFO ui.http 127.0.0.1 - "POST /sync/4?cabinet_id=111 HTTP/1.1" 303 -
+2026-03-27 11:20:24,778 INFO app.service Sync completed for source_id=4 type=google_drive
+2026-03-27 11:20:24,779 INFO ui.http 127.0.0.1 - "POST /sources/add?cabinet_id=111 HTTP/1.1" 303 -
+2026-03-27 11:20:54,339 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:24:17,053 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:25:01,675 INFO app.service Sync completed for source_id=4 type=google_drive
+2026-03-27 11:25:01,677 INFO ui.http 127.0.0.1 - "POST /sync/4?cabinet_id=111 HTTP/1.1" 303 -
+2026-03-27 11:28:45,098 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:31:42,452 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 11:31:48,436 INFO ui.http 141.98.83.86 - code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+2026-03-27 11:31:48,436 INFO ui.http 141.98.83.86 - "  /*à     Cookie: mstshash=Administr" 400 -
+2026-03-27 11:36:08,165 INFO ui.http 141.98.83.86 - code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+2026-03-27 11:36:08,167 INFO ui.http 141.98.83.86 - "  /*à     Cookie: mstshash=Administr" 400 -
+2026-03-27 11:40:21,029 INFO ui.http 141.98.83.86 - code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+2026-03-27 11:40:21,031 INFO ui.http 141.98.83.86 - "  /*à     Cookie: mstshash=Administr" 400 -
+2026-03-27 12:40:43,782 INFO ui.http 188.186.174.137 - "GET / HTTP/1.1" 200 -
+2026-03-27 12:47:35,708 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 12:50:48,468 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 13:01:20,332 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -
+2026-03-27 13:01:24,223 INFO ui.http 127.0.0.1 - "GET /?cabinet_id=111 HTTP/1.1" 200 -

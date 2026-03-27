@@ -16,19 +16,22 @@ MODULES = {
         "path": PROJECT_ROOT / "modules" / "ingest_registry",
         "env_host": "INGEST_REGISTRY_HOST",
         "env_port": "INGEST_REGISTRY_PORT",
-        "default_port": 8101,
+        "default_host": "0.0.0.0",
+        "default_port": 8001,
     },
     "doc_classifier": {
         "path": PROJECT_ROOT / "modules" / "doc_classifier",
         "env_host": "DOC_CLASSIFIER_HOST",
         "env_port": "DOC_CLASSIFIER_PORT",
-        "default_port": 8102,
+        "default_host": "0.0.0.0",
+        "default_port": 8002,
     },
     "project_builder": {
         "path": PROJECT_ROOT / "modules" / "project_builder",
         "env_host": "PROJECT_BUILDER_HOST",
         "env_port": "PROJECT_BUILDER_PORT",
-        "default_port": 8103,
+        "default_host": "0.0.0.0",
+        "default_port": 8003,
     },
 }
 
@@ -62,7 +65,7 @@ def get_port(meta: dict[str, object], env: dict[str, str]) -> int:
 
 def get_host(meta: dict[str, object], env: dict[str, str]) -> str:
     env_host = str(meta["env_host"])
-    return env.get(env_host, "127.0.0.1")
+    return env.get(env_host, str(meta["default_host"]))
 
 
 def read_pid(pid_file: Path) -> int | None:

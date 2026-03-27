@@ -20,19 +20,36 @@
 - Реестр должен быть устойчив к дублям.
 - Нужно сохранять источник, идентификатор, путь, имя, дату и статус файла.
 - Локальная загрузка должна быть простой и проверяемой через UI.
+- Если модуль работает в cabinet-aware режиме, `cabinet_id` должен сохраняться во всех `GET`, формах, `POST`-маршрутах и редиректах.
+- Cabinet-aware задача не считается завершенной, пока агент не проверил сценарии минимум для `cabinet_id=default` и `cabinet_id=test`.
+- Для `local_upload` изоляция по кабинетам должна быть физической: файлы разных `cabinet_id` должны храниться в разных каталогах, а не только разделяться фильтрацией в UI или SQL.
+- Синхронизация `local_upload` обязана читать только локальный каталог текущего `cabinet_id`, а не общий `storage_dir`.
 - Ошибки по источникам должны логироваться отдельно и понятно.
+- Все пользовательские тексты в UI должны быть на русском языке.
+- Источники приводятся к `sources.id`; `source_status` не используется, `file_registry.source_id` — единственный ключ.
+- Названия внешних источников обязательно включают провайдер (`Google Drive: ...`, `Яндекс Диск: ...`), добавление запускает синхронизацию.
+- При изменении migration path агент обязан проверять не только чистую инициализацию, но и сценарий апгрейда существующей SQLite БД со старой схемой.
+- Если схема добавляет новые колонки или индексы, миграция старых таблиц должна выполняться до шагов, которые предполагают наличие этих колонок.
 
 ## Особые запреты
 - Не выполнять OCR, классификацию и проектную логику.
 - Не добавлять в этот модуль чужие бизнес-правила.
+- Разрешено смотреть файлы во всех других папках проекта, но редактировать их без явного разрешения нельзя.
+- Не расширять существующие таблицы, API, JSON, формы, страницы и layout без прямого требования задачи.
+- Не добавлять новые колонки, поля, секции, фильтры, кнопки, маршруты и служебные блоки, если это не было явно запрошено.
+- Не перестраивать уже готовые страницы и таблицы реестра, если задача требует только локального изменения.
 
 ## Команда task
 По команде `task` агент этого модуля обязан:
-- сначала смотреть SQL-реестр задач как источник правды;
+- сначала смотреть SQL workflow-базу как источник правды;
+- сначала читать свою очередь через `./task mine --agent ingest_registry --cabinet-id <cabinet_id> --limit 20`;
+- если в очереди есть запись, брать верхнюю запись как свою текущую задачу;
 - затем смотреть Google Sheets только как дашборд;
-- искать записи по `module_name=ingest_registry`, своему `target_agent` или нужному `task_id`;
-- при начале работы добавлять новую запись со статусом `in_progress`;
-- при завершении, handoff, блокере или ошибке добавлять новую запись и не менять старые.
+- при начале работы вести задачу через `start` и `progress`;
+- после выполнения создавать отдельный handoff для каждого reviewer-а, который должен проверить задачу;
+- в handoff обязательно писать, что сделано, где проверять и что именно reviewer должен проверить;
+- при блокере или завершении этапа добавлять новую запись и не менять историю.
+- не записывать `done` по задаче, если обязательный reviewer handoff еще не создан.
 
 Где смотреть:
 - `shared/task_registry.sql`
@@ -40,26 +57,33 @@
 - `.env` для `GOOGLE_SHEETS_DASHBOARD_ID` и `GOOGLE_SHEETS_DASHBOARD_URL`
 
 Куда записывать:
-- в SQL-таблицу `task_registry` через `./task add ...`;
+- в SQL-таблицы `tasks`, `task_handoffs`, `task_reviews`, `task_events` через `./task add ...`;
 - в Google Sheets только через `./task add ... --sync`;
 - руками в таблицу агент ingest_registry ничего не пишет.
 
 Команды:
-- смотреть задачи: `./task list --module-name ingest_registry --limit 20`
-- завершать запись: `./task add ... --module-name ingest_registry --sync`
+- смотреть свои задачи: `./task mine --agent ingest_registry --cabinet-id <cabinet_id> --limit 20`
+- смотреть карточку задачи: `./task show --task-id <task_id> --cabinet-id <cabinet_id>`
+- смотреть историю задачи: `./task list --task-id <task_id> --cabinet-id <cabinet_id> --limit 20`
+- передавать в review: `./task add ... --cabinet-id <cabinet_id> --action-type handoff --module-name ingest_registry --sync`
+- завершать этап: `./task add ... --cabinet-id <cabinet_id> --action-type done --module-name ingest_registry --sync`
 - запускать модуль: `./modulectl start ingest_registry`
 - смотреть статус: `./modulectl status ingest_registry`
 - проверять доступность: `./modulectl health ingest_registry`
 - останавливать модуль: `./modulectl stop ingest_registry`
 
 Обязательное правило:
-- перед работой читать задачи через `./task list --module-name ingest_registry --limit 20`;
+- перед работой читать задачи через `./task mine --agent ingest_registry --cabinet-id <cabinet_id> --limit 20`;
+- не считать задачу переданной на проверку, пока не создан reviewer handoff;
 - запускать локальный UI только через `./modulectl`, а не через прямой `python main.py`;
-- после результата, handoff, blocker или ошибки выполнять `./task add ... --module-name ingest_registry --sync`;
+- после результата, handoff, blocker или ошибки выполнять `./task add ... --cabinet-id <cabinet_id> --module-name ingest_registry --sync`;
 - не завершать работу без записи в реестр задач.
+- если задача затрагивает `cabinet_id`, агент обязан проверить сохранение кабинетного контекста в UI, формах, POST-действиях и редиректах.
+- если исправляется backend-логика по `cabinet_id`, агент обязан добавить тесты на разделение данных между кабинетами.
+- если исправляется migration path, агент обязан добавить отдельный тест на апгрейд legacy-схемы.
 
 Шаблоны:
 - start:
-  `./task add --task-id <task_id> --source-agent ingest_registry --target-agent ingest_registry --module-name ingest_registry --action-type start --summary "<что начато>" --status in_progress --artifacts "<paths>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent ingest_registry --target-agent ingest_registry --module-name ingest_registry --action-type start --summary "<что начато>" --status in_progress --artifacts "<paths>" --sync`
 - handoff:
-  `./task add --task-id <task_id> --source-agent ingest_registry --target-agent <reviewer_or_next_module> --module-name ingest_registry --action-type handoff --summary "<что готово>" --status done --artifacts "<paths>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent ingest_registry --target-agent <reviewer_or_next_module> --module-name ingest_registry --action-type handoff --status pending --summary "<что готово>" --implementation-report "<где и как проверять>" --checks-required "<что reviewer должен проверить>" --artifacts "<paths>" --sync`

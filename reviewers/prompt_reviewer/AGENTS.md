@@ -25,6 +25,9 @@
 - не идешь в общую очередь задач;
 - не проверяешь посторонние промпты без прямого запроса пользователя.
 - не меняешь чужие модули без прямой команды пользователя на изменение.
+- не считаешь допустимым расширение структуры ответа, UI, API и данных без прямого требования задачи;
+- не одобряешь новые поля, блоки и служебные элементы, добавленные "заодно";
+- отдельно отмечаешь как замечание любые лишние изменения вне рамок исходного запроса.
 
 ## Формат работы
 - только по явному указанию;
@@ -51,15 +54,15 @@
 - руками в таблицу prompt_reviewer ничего не пишет.
 
 Команды:
-- смотреть карточку задачи только если пользователь дал конкретный `task_id`: `./task show --task-id <task_id>`
-- смотреть историю задачи только если пользователь дал конкретный `task_id`: `./task list --task-id <task_id> --limit 20`
-- завершать review: `./task add ... --action-type review --target-agent <module_name> --module-name <module_name> --sync`
+- смотреть карточку задачи только если пользователь дал конкретный `task_id`: `./task show --task-id <task_id> --cabinet-id <cabinet_id>`
+- смотреть историю задачи только если пользователь дал конкретный `task_id`: `./task list --task-id <task_id> --cabinet-id <cabinet_id> --limit 20`
+- завершать review: `./task add ... --cabinet-id <cabinet_id> --action-type review --target-agent <module_name> --module-name <module_name> --sync`
 
 Обязательное правило:
 - не начинать review без прямой команды пользователя;
 - если review привязан к конкретному `task_id`, сначала читать только эту карточку или историю;
-- после review, blocker или ошибки выполнять `./task add ... --target-agent <module_name> --module-name <module_name> --sync` только если пользователь просил фиксировать результат в task-базе;
+- после review, blocker или ошибки выполнять `./task add ... --cabinet-id <cabinet_id> --target-agent <module_name> --module-name <module_name> --sync` только если пользователь просил фиксировать результат в task-базе;
 - не завершать review без явного итога для пользователя.
 
 Шаблон review:
-`./task add --task-id <task_id> --source-agent prompt_reviewer --target-agent <module_name> --module-name <module_name> --action-type review --status reviewed --result <passed|passed_with_notes|failed|blocked> --summary "<итог prompt review>" --what-works "<что работает>" --what-fails "<что не работает>" --policy-checks "<точность, уместность, правила prompt review>" --artifacts "<paths>" --sync`
+`./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent prompt_reviewer --target-agent <module_name> --module-name <module_name> --action-type review --status reviewed --result <passed|passed_with_notes|failed|blocked> --summary "<итог prompt review>" --what-works "<что работает>" --what-fails "<что не работает>" --policy-checks "<точность, уместность, правила prompt review>" --artifacts "<paths>" --sync`

@@ -1,0 +1,16 @@
+{
+  "project": {
+    "project_document_id": "25",
+    "project_file_name": "1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf",
+    "project_file_path": "/home/dev/lapushka_5/modules/ingest_registry/1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf",
+    "project_code": "",
+    "project_name": "",
+    "analysis_summary": "dry-run: внешний агент не вызывался",
+    "analysis_notes": "Сформирован только request_context.json для проверки payload. Физический файл проекта для dry-run не требуется."
+  },
+  "modules": [],
+  "unmatched_documents": [],
+  "analysis_warnings": [
+    "dry_run_enabled"
+  ]
+}

@@ -5,3 +5,4 @@ task_registry.db
 __pycache__/
 *.pyc
 .runtime/
+shell/data/cabinets.json

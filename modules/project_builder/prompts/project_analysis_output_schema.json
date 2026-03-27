@@ -1,0 +1,66 @@
+{
+  "project": {
+    "project_document_id": "string_or_number",
+    "project_file_name": "string",
+    "project_file_path": "string",
+    "project_code": "string",
+    "project_name": "string",
+    "analysis_summary": "string",
+    "analysis_notes": "string"
+  },
+  "modules": [
+    {
+      "module_id": "string",
+      "module_name": "string",
+      "module_type": "building|section|floor|discipline|mixed|other",
+      "building": "string",
+      "section": "string",
+      "floor": "string",
+      "discipline": "string",
+      "source_reference": {
+        "page": "string",
+        "sheet": "string",
+        "quote": "string"
+      },
+      "materials": [
+        {
+          "material_name": "string",
+          "document_name": "string",
+          "document_number": "string",
+          "document_date": "string",
+          "project_source": {
+            "page": "string",
+            "sheet": "string",
+            "quote": "string"
+          },
+          "document_disk_path": "string",
+          "document_registry_id": "string_or_number",
+          "document_source_title": "string",
+          "document_source_url": "string",
+          "match_reason": "string"
+        }
+      ],
+      "norms": [
+        {
+          "norm_name": "string",
+          "project_source": {
+            "page": "string",
+            "sheet": "string",
+            "quote": "string"
+          }
+        }
+      ]
+    }
+  ],
+  "unmatched_documents": [
+    {
+      "document_registry_id": "string_or_number",
+      "document_name": "string",
+      "document_disk_path": "string",
+      "reason": "string"
+    }
+  ],
+  "analysis_warnings": [
+    "string"
+  ]
+}

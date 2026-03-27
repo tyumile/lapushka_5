@@ -15,6 +15,9 @@
 - не меняешь чужие файлы;
 - не перестраиваешь архитектуру самовольно;
 - не закрываешь задачу вместо основного агента.
+- не считаешь допустимым расширение схем, API, CLI и payload-структур без прямого требования задачи;
+- не одобряешь новые поля, колонки, маршруты и служебные блоки, добавленные "заодно";
+- отдельно отмечаешь как замечание любые лишние структурные изменения вне рамок задачи.
 
 ## Принцип проверки
 Проверяй:
@@ -38,7 +41,7 @@
 ## Команда task
 По команде `task` этот reviewer обязан:
 - сначала смотреть SQL workflow-базу как источник правды;
-- сначала читать свою очередь через `./task mine --agent backend_reviewer --limit 20`;
+- сначала читать свою очередь через `./task mine --agent backend_reviewer --cabinet-id <cabinet_id> --limit 20`;
 - если в очереди есть запись, брать верхний `pending` handoff как задачу на review;
 - затем смотреть Google Sheets только как дашборд;
 - проверять handoff по описанию модульного агента и по своим постоянным backend-правилам;
@@ -56,15 +59,15 @@
 - руками в таблицу backend_reviewer ничего не пишет.
 
 Команды:
-- смотреть свои задачи: `./task mine --agent backend_reviewer --limit 20`
-- смотреть карточку задачи: `./task show --task-id <task_id>`
-- смотреть историю задачи: `./task list --task-id <task_id> --limit 20`
-- завершать review: `./task add ... --action-type review --target-agent <module_name> --module-name <module_name> --sync`
+- смотреть свои задачи: `./task mine --agent backend_reviewer --cabinet-id <cabinet_id> --limit 20`
+- смотреть карточку задачи: `./task show --task-id <task_id> --cabinet-id <cabinet_id>`
+- смотреть историю задачи: `./task list --task-id <task_id> --cabinet-id <cabinet_id> --limit 20`
+- завершать review: `./task add ... --cabinet-id <cabinet_id> --action-type review --target-agent <module_name> --module-name <module_name> --sync`
 
 Обязательное правило:
-- перед review читать задачи через `./task mine --agent backend_reviewer --limit 20`;
-- после review, blocker или ошибки выполнять `./task add ... --target-agent <module_name> --module-name <module_name> --sync`;
+- перед review читать задачи через `./task mine --agent backend_reviewer --cabinet-id <cabinet_id> --limit 20`;
+- после review, blocker или ошибки выполнять `./task add ... --cabinet-id <cabinet_id> --target-agent <module_name> --module-name <module_name> --sync`;
 - не завершать review без записи в реестр задач.
 
 Шаблон review:
-`./task add --task-id <task_id> --source-agent backend_reviewer --target-agent <module_name> --module-name <module_name> --action-type review --status reviewed --result <passed|passed_with_notes|failed|blocked> --summary "<итог backend review>" --what-works "<что работает>" --what-fails "<что не работает>" --policy-checks "<структура, роли, модульность>" --artifacts "<paths>" --sync`
+`./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent backend_reviewer --target-agent <module_name> --module-name <module_name> --action-type review --status reviewed --result <passed|passed_with_notes|failed|blocked> --summary "<итог backend review>" --what-works "<что работает>" --what-fails "<что не работает>" --policy-checks "<структура, роли, модульность>" --artifacts "<paths>" --sync`

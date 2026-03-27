@@ -8,63 +8,143 @@
   </head>
   <body>
     <main class="shell-home">
+      <nav class="top-nav" aria-label="Главная навигация">
+        <button class="top-link" data-module="sources" data-port="8001" type="button">
+          <span class="top-link-label">Источники</span>
+          <span class="top-link-meta">модуль 1</span>
+        </button>
+        <button class="top-link" data-module="documents" data-port="8002" type="button">
+          <span class="top-link-label">Рабочая документация</span>
+          <span class="top-link-meta">модуль 2</span>
+        </button>
+        <button class="top-link" data-module="project" data-port="8003" type="button">
+          <span class="top-link-label">Проект</span>
+          <span class="top-link-meta">модуль 3</span>
+        </button>
+      </nav>
+
       <section class="hero">
-        <p class="eyebrow">Lapushka 5</p>
-        <h1>Общий вход в систему автономных модулей</h1>
-        <p class="lead">
-          Shell задает единый стиль и навигацию, но не переносит к себе бизнес-логику
-          и не переписывает локальные интерфейсы модулей.
-        </p>
+        <div class="hero-copy">
+          <p class="eyebrow">Lapushka 5</p>
+          <h1>Единый shell-контейнер для трех рабочих зон</h1>
+          <p class="lead">
+            Верхняя навигация остается в shell на порту `8000`, а локальные UI модулей
+            подгружаются ниже в отдельную область без переноса их логики в общий слой.
+          </p>
+        </div>
+        <dl class="hero-stats">
+          <div>
+            <dt>Верхних входа</dt>
+            <dd>3</dd>
+          </div>
+          <div>
+            <dt>Формат shell</dt>
+            <dd>Навигация</dd>
+          </div>
+          <div>
+            <dt>Граница</dt>
+            <dd>Без монолита</dd>
+          </div>
+        </dl>
       </section>
 
       <section class="panel">
         <div class="panel-head">
-          <h2>Роль shell</h2>
+          <h2>Место shell в системе</h2>
           <span class="tag">front layer</span>
         </div>
         <ul class="list">
-          <li>дает одну стартовую точку входа в систему;</li>
-          <li>ведет пользователя к локальным UI автономных модулей;</li>
-          <li>показывает общую картину без захвата роли оркестратора.</li>
+          <li>служит стартовой страницей общего входа;</li>
+          <li>показывает верхний уровень системы без бизнес-логики модулей;</li>
+          <li>ведет пользователя к локальным UI, а не заменяет их.</li>
         </ul>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Рабочая область</h2>
+          <span class="tag" id="active-module-tag">sources</span>
+        </div>
+        <p class="muted" id="active-module-description">
+          Shell встраивает UI выбранного модуля ниже и сохраняет верхнюю навигацию на месте.
+        </p>
+        <div class="workspace-meta">
+          <span class="status is-live" id="active-module-port">порт 8001</span>
+          <a class="module-link" id="active-module-link" data-port="8001" href="http://127.0.0.1:8001/" target="_blank" rel="noreferrer">
+            Открыть модуль отдельно
+          </a>
+        </div>
+        <div class="module-frame-shell">
+          <iframe
+            id="module-frame"
+            title="Рабочая область модуля"
+            src="http://127.0.0.1:8001/"
+          ></iframe>
+        </div>
       </section>
 
       <section class="grid">
         <article class="card">
           <h2>Принципы навигации</h2>
           <ul class="list">
-            <li>каждый модуль открывается как отдельная локальная страница;</li>
-            <li>shell хранит только ссылки и краткие пояснения;</li>
-            <li>переходы остаются прямыми и прозрачными.</li>
+            <li>каждый модуль открывается по своей прямой ссылке;</li>
+            <li>shell хранит только краткое описание и точку входа;</li>
+            <li>подключение новых модулей делается минимальным изменением shell.</li>
           </ul>
         </article>
 
         <article class="card">
           <h2>Границы shell</h2>
           <ul class="list">
-            <li>не заменяет process-модули;</li>
-            <li>не оркестрирует их внутреннюю работу;</li>
-            <li>не изменяет локальные страницы вместо владельцев модулей.</li>
+            <li>не переносит бизнес-логику в общий слой;</li>
+            <li>не переписывает локальные страницы модулей;</li>
+            <li>не берет на себя роль оркестратора или центра управления.</li>
           </ul>
         </article>
       </section>
 
       <section class="panel">
         <div class="panel-head">
-          <h2>Точки входа модулей</h2>
-          <span class="tag">stub</span>
+          <h2>Служебные модули без UI</h2>
+          <span class="tag">service layer</span>
         </div>
-        <p class="muted">
-          На этом этапе shell подготавливает место для ссылок на локальные UI. Подключение
-          конкретных модулей добавляется отдельными минимальными изменениями без переноса их логики.
-        </p>
-        <div class="entry-list">
-          <a class="entry disabled" href="#" aria-disabled="true">
-            <strong>Модуль будет подключен отдельно</strong>
-            <span>Shell показывает только точку входа и краткое описание</span>
-          </a>
+        <div class="service-grid">
+          <article class="entry">
+            <strong>orchestrator</strong>
+            <span>Координация задач и handoff, но не общий UI и не бизнес-логика.</span>
+          </article>
+          <article class="entry">
+            <strong>frontend_reviewer</strong>
+            <span>Проверка качества интерфейсов, без собственного пользовательского UI.</span>
+          </article>
+          <article class="entry">
+            <strong>backend_reviewer</strong>
+            <span>Review серверной логики и рисков изменений.</span>
+          </article>
+          <article class="entry">
+            <strong>db_reviewer</strong>
+            <span>Проверка структуры БД и схем изменений.</span>
+          </article>
+          <article class="entry">
+            <strong>prompt_reviewer</strong>
+            <span>Ручной reviewer-модуль без отдельного HTTP-интерфейса.</span>
+          </article>
         </div>
       </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Границы общего фронта</h2>
+          <span class="tag">shell only</span>
+        </div>
+        <ul class="list">
+          <li>shell не переносит предметную логику модулей в общий слой;</li>
+          <li>shell не встраивает локальные страницы модулей в свой HTML;</li>
+          <li>shell не управляет их запуском и не заменяет orchestrator;</li>
+          <li>shell дает единое ощущение системы только на уровне входа и навигации.</li>
+        </ul>
+      </section>
     </main>
+    <script src="./app.js"></script>
   </body>
 </html>

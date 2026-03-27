@@ -5,6 +5,7 @@ from pathlib import Path
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS projects (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cabinet_id TEXT NOT NULL DEFAULT 'default',
     project_code TEXT NOT NULL UNIQUE,
     project_name TEXT NOT NULL,
     status TEXT NOT NULL,
@@ -15,6 +16,7 @@ CREATE TABLE IF NOT EXISTS projects (
 
 CREATE TABLE IF NOT EXISTS project_documents (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cabinet_id TEXT NOT NULL DEFAULT 'default',
     project_id INTEGER NOT NULL,
     document_code TEXT NOT NULL,
     title TEXT NOT NULL,
@@ -30,6 +32,7 @@ CREATE TABLE IF NOT EXISTS project_documents (
 
 CREATE TABLE IF NOT EXISTS project_links (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cabinet_id TEXT NOT NULL DEFAULT 'default',
     project_id INTEGER NOT NULL,
     source_document_code TEXT NOT NULL,
     target_document_code TEXT NOT NULL,
@@ -41,6 +44,7 @@ CREATE TABLE IF NOT EXISTS project_links (
 
 CREATE TABLE IF NOT EXISTS project_deficits (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cabinet_id TEXT NOT NULL DEFAULT 'default',
     project_id INTEGER NOT NULL,
     required_type TEXT NOT NULL,
     severity TEXT NOT NULL,
@@ -52,6 +56,7 @@ CREATE TABLE IF NOT EXISTS project_deficits (
 
 CREATE TABLE IF NOT EXISTS module_events (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cabinet_id TEXT NOT NULL DEFAULT 'default',
     event_type TEXT NOT NULL,
     details TEXT NOT NULL,
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -59,6 +64,7 @@ CREATE TABLE IF NOT EXISTS module_events (
 
 CREATE TABLE IF NOT EXISTS task_registry_log (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    cabinet_id TEXT NOT NULL DEFAULT 'default',
     task_id TEXT NOT NULL,
     source_agent TEXT NOT NULL,
     target_agent TEXT NOT NULL,
@@ -76,3 +82,8 @@ def initialize_database(db_path: Path) -> None:
     db_path.parent.mkdir(parents=True, exist_ok=True)
     with sqlite3.connect(db_path) as connection:
         connection.executescript(SCHEMA)
+        for table_name in ["projects", "project_documents", "project_links", "project_deficits", "module_events", "task_registry_log"]:
+            columns = {row[1] for row in connection.execute(f"PRAGMA table_info({table_name})").fetchall()}
+            if "cabinet_id" not in columns:
+                connection.execute(f"ALTER TABLE {table_name} ADD COLUMN cabinet_id TEXT NOT NULL DEFAULT 'default'")
+        connection.commit()

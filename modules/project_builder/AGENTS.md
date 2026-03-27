@@ -20,18 +20,37 @@
 - Нужно уметь объяснить, почему документ отнесен к проекту.
 - Нужно отдельно хранить найденные связи и отдельно дефициты.
 - UI должен показывать проект, связанные документы и нехватки.
+- UI, AnalysisStore и результаты анализа обязаны учитывать `cabinet_id` без смешивания данных разных кабинетов.
+- Каждый `project_analysis.json` обязан содержать top-level поле `cabinet_id`, а каталог анализа должен включать `cabinet_id` в имени.
+- Все пользовательские тексты в UI должны быть на русском языке.
 
 ## Особые запреты
 - Не тащить в этот модуль логику импорта.
 - Не тащить в этот модуль тяжелую распознавательную логику.
+- Можно смотреть файлы во всех остальных папках проекта для анализа и понимания контекста.
+- Нельзя редактировать файлы в остальных папках проекта без явного разрешения пользователя.
+- Не расширять существующие таблицы, API, JSON, формы, страницы и layout без прямого требования задачи.
+- Не добавлять новые колонки, поля, секции, фильтры, кнопки, маршруты и служебные блоки, если это не было явно запрошено.
+- Не перестраивать уже готовые страницы проектов, таблицы и AI-отчеты, если задача требует только локального изменения.
+- Показывать в UI только реальные данные из `modules/project_builder/data/project_analyses`; демонстрационные или seed-проекты не должны отображаться ни на главной, ни в списке проектов, ни на страницах.
+- Главная страница строится вокруг реальных проектов: после блока статуса идут раскрывающиеся карточки, затем `Последнее событие`, никаких отдельных блоков AI-анализа или внутренних журналов там быть не должно.
+- Для списка проектов `/projects` основное действие — раскрытие деталей проекта прямо в строке таблицы; `/projects/<id>` использовать только как fallback-маршрут.
+- `/projects/<id>` — это карточка проекта, `/analysis/<id>` — подробный AI-отчёт; маршруты нельзя смешивать.
+- В блоке `Состав проекта` основной вид всегда табличный; в колонке `Документ/материал` показывать `material_name`, а в `Комментарий` — только реквизиты документа, не `match_reason`.
+- Пользовательскому UI запрещено раскрывать абсолютные `filesystem`-пути, внутренние технические логи и сырые backend-статусы.
+- При работе с внешним агентом проектный анализ всегда идёт через text-mode по документу с `OPENAI_TIMEOUT_SECONDS` >= 180; file-mode использовать только для debug и отдельно фиксировать поведение.
+- Если в `ingest_registry` нет второго кабинета, cabinet-aware поведение проверять локальным dry-run или unit-тестом на временных данных без изменения чужих модулей.
 
 ## Команда task
 По команде `task` агент этого модуля обязан:
-- сначала смотреть SQL-реестр задач как источник правды;
+- сначала смотреть SQL workflow-базу как источник правды;
+- сначала читать свою очередь через `./task mine --agent project_builder --cabinet-id <cabinet_id> --limit 20`;
+- если в очереди есть запись, брать верхнюю запись как свою текущую задачу;
 - затем смотреть Google Sheets только как дашборд;
-- искать записи по `module_name=project_builder`, своему `target_agent` или нужному `task_id`;
-- при начале работы добавлять новую запись со статусом `in_progress`;
-- при завершении, handoff, блокере или ошибке добавлять новую запись и не менять старые.
+- при начале работы вести задачу через `start` и `progress`;
+- после выполнения создавать отдельный handoff для каждого reviewer-а, который должен проверить задачу;
+- в handoff обязательно писать, что сделано, где проверять и что именно reviewer должен проверить;
+- при блокере или завершении этапа добавлять новую запись и не менять историю.
 
 Где смотреть:
 - `shared/task_registry.sql`
@@ -39,26 +58,30 @@
 - `.env` для `GOOGLE_SHEETS_DASHBOARD_ID` и `GOOGLE_SHEETS_DASHBOARD_URL`
 
 Куда записывать:
-- в SQL-таблицу `task_registry` через `./task add ...`;
+- в SQL-таблицы `tasks`, `task_handoffs`, `task_reviews`, `task_events` через `./task add ...`;
 - в Google Sheets только через `./task add ... --sync`;
 - руками в таблицу агент project_builder ничего не пишет.
 
 Команды:
-- смотреть задачи: `./task list --module-name project_builder --limit 20`
-- завершать запись: `./task add ... --module-name project_builder --sync`
+- смотреть свои задачи: `./task mine --agent project_builder --cabinet-id <cabinet_id> --limit 20`
+- смотреть карточку задачи: `./task show --task-id <task_id> --cabinet-id <cabinet_id>`
+- смотреть историю задачи: `./task list --task-id <task_id> --cabinet-id <cabinet_id> --limit 20`
+- передавать в review: `./task add ... --cabinet-id <cabinet_id> --action-type handoff --module-name project_builder --sync`
+- завершать этап: `./task add ... --cabinet-id <cabinet_id> --action-type done --module-name project_builder --sync`
 - запускать модуль: `./modulectl start project_builder`
 - смотреть статус: `./modulectl status project_builder`
 - проверять доступность: `./modulectl health project_builder`
 - останавливать модуль: `./modulectl stop project_builder`
 
 Обязательное правило:
-- перед работой читать задачи через `./task list --module-name project_builder --limit 20`;
+- перед работой читать задачи через `./task mine --agent project_builder --cabinet-id <cabinet_id> --limit 20`;
+- не считать задачу переданной на проверку, пока не создан reviewer handoff;
 - запускать локальный UI только через `./modulectl`, а не через прямой `python main.py`;
-- после результата, handoff, blocker или ошибки выполнять `./task add ... --module-name project_builder --sync`;
+- после результата, handoff, blocker или ошибки выполнять `./task add ... --cabinet-id <cabinet_id> --module-name project_builder --sync`;
 - не завершать работу без записи в реестр задач.
 
 Шаблоны:
 - start:
-  `./task add --task-id <task_id> --source-agent project_builder --target-agent project_builder --module-name project_builder --action-type start --summary "<что начато>" --status in_progress --artifacts "<paths>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent project_builder --target-agent project_builder --module-name project_builder --action-type start --summary "<что начато>" --status in_progress --artifacts "<paths>" --sync`
 - handoff:
-  `./task add --task-id <task_id> --source-agent project_builder --target-agent <reviewer_or_next_module> --module-name project_builder --action-type handoff --summary "<что готово>" --status done --artifacts "<paths>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent project_builder --target-agent <reviewer_or_next_module> --module-name project_builder --action-type handoff --status pending --summary "<что готово>" --implementation-report "<где и как проверять>" --checks-required "<что reviewer должен проверить>" --artifacts "<paths>" --sync`

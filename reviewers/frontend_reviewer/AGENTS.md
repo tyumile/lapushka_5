@@ -8,7 +8,7 @@
 - Всегда подтверждай, что пользовательский экран содержит только понятные клиенту метки (без raw `status`/`path`/`event_type`).
 - Если ссылка открывает module UI, сверяй порт и текст: shell должен вести на реально запущенный порт, а UI — на конечного пользователя, а не на технический лог.
 - У списка/реестра документов/файлов проверяй, нет ли служебных записей (`README`, `welcome.txt`, internal `local_upload`), и выноси их из основного вида или явно помечай.
-- Если handoff не открыт, review может выполняться вручную, но после проверки добавляй `task add` с `action_type=blocked`/`progress` и пометкой, что handoff отсутствует.
+- Если handoff не открыт, review не считается начатым: сначала зафиксируй `blocked` с пометкой, что handoff отсутствует, и не подменяй этим полноценный `review`.
 - Для экранов с реестрами/таблицами всегда оценивай:
   * есть ли фильтры/сортировка; 
   * выделены ли проблемные элементы `failed`, `needs_documents`; 
@@ -30,6 +30,9 @@
 - не запускаешь тяжелые сценарии;
 - не делаешь длительные автотесты;
 - не меняешь код модуля.
+- не одобряешь добавление новых секций, колонок, фильтров, кнопок и layout-блоков, если этого не требовала задача;
+- не считаешь допустимым расширение UI, API и структуры страниц "заодно";
+- отдельно отмечаешь как замечание любые лишние поля и перестройку уже готовых страниц вне рамок задачи.
 
 ## Стратегия проверки
 Проверяй только:
@@ -64,7 +67,7 @@
 ## Команда task
 По команде `task` этот reviewer обязан:
 - сначала смотреть SQL workflow-базу как источник правды;
-- сначала читать свою очередь через `./task mine --agent frontend_reviewer --limit 20`;
+- сначала читать свою очередь через `./task mine --agent frontend_reviewer --cabinet-id <cabinet_id> --limit 20`;
 - если в очереди есть запись, брать верхний `pending` handoff как задачу на review;
 - затем смотреть Google Sheets только как дашборд;
 - проверять handoff по описанию модульного агента и по своим постоянным правилам;
@@ -82,16 +85,16 @@
 - руками в таблицу frontend_reviewer ничего не пишет.
 
 Команды:
-- смотреть свои задачи: `./task mine --agent frontend_reviewer --limit 20`
-- смотреть карточку задачи: `./task show --task-id <task_id>`
-- смотреть историю задачи: `./task list --task-id <task_id> --limit 20`
-- завершать review: `./task add ... --action-type review --target-agent <module_name> --module-name <module_name> --sync`
+- смотреть свои задачи: `./task mine --agent frontend_reviewer --cabinet-id <cabinet_id> --limit 20`
+- смотреть карточку задачи: `./task show --task-id <task_id> --cabinet-id <cabinet_id>`
+- смотреть историю задачи: `./task list --task-id <task_id> --cabinet-id <cabinet_id> --limit 20`
+- завершать review: `./task add ... --cabinet-id <cabinet_id> --action-type review --target-agent <module_name> --module-name <module_name> --sync`
 
 Обязательное правило:
-- перед review читать задачи через `./task mine --agent frontend_reviewer --limit 20`;
+- перед review читать задачи через `./task mine --agent frontend_reviewer --cabinet-id <cabinet_id> --limit 20`;
 - проверять не только handoff-описание, но и обязательные frontend-правила reviewer-а;
-- после review, blocker или ошибки выполнять `./task add ... --target-agent <module_name> --module-name <module_name> --sync`;
+- после review, blocker или ошибки выполнять `./task add ... --cabinet-id <cabinet_id> --target-agent <module_name> --module-name <module_name> --sync`;
 - не завершать review без записи в реестр задач.
 
 Шаблон review:
-`./task add --task-id <task_id> --source-agent frontend_reviewer --target-agent <module_name> --module-name <module_name> --action-type review --status reviewed --result <passed|passed_with_notes|failed|blocked> --summary "<итог frontend review>" --what-works "<что работает>" --what-fails "<что не работает>" --policy-checks "<русский текст, отображение, layout, ошибки>" --artifacts "<paths>" --sync`
+`./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent frontend_reviewer --target-agent <module_name> --module-name <module_name> --action-type review --status reviewed --result <passed|passed_with_notes|failed|blocked> --summary "<итог frontend review>" --what-works "<что работает>" --what-fails "<что не работает>" --policy-checks "<русский текст, отображение, layout, ошибки>" --artifacts "<paths>" --sync`

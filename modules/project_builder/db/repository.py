@@ -20,9 +20,12 @@ class ProjectBuilderRepository:
         connection.row_factory = sqlite3.Row
         return connection
 
-    def seed_demo_data(self) -> None:
+    def seed_demo_data(self, cabinet_id: str = "default") -> None:
         with self._connect() as connection:
-            existing = connection.execute("SELECT COUNT(*) AS count FROM projects").fetchone()["count"]
+            existing = connection.execute(
+                "SELECT COUNT(*) AS count FROM projects WHERE cabinet_id = ?",
+                (cabinet_id,),
+            ).fetchone()["count"]
             if existing:
                 return
 
@@ -138,9 +141,10 @@ class ProjectBuilderRepository:
                 cursor = connection.execute(
                     """
                     INSERT INTO projects (project_code, project_name, status, completeness_ratio)
-                    VALUES (?, ?, ?, ?)
+                    VALUES (?, ?, ?, ?, ?)
                     """,
                     (
+                        cabinet_id,
                         spec["project_code"],
                         spec["project_name"],
                         spec["status"],
@@ -152,11 +156,12 @@ class ProjectBuilderRepository:
                     connection.execute(
                         """
                         INSERT INTO project_documents (
-                            project_id, document_code, title, document_type, status,
+                            cabinet_id, project_id, document_code, title, document_type, status,
                             assignment_reason, source_note
-                        ) VALUES (?, ?, ?, ?, ?, ?, ?)
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                         """,
                         (
+                            cabinet_id,
                             project_id,
                             item["document_code"],
                             item["title"],
@@ -170,10 +175,11 @@ class ProjectBuilderRepository:
                     connection.execute(
                         """
                         INSERT INTO project_links (
-                            project_id, source_document_code, target_document_code, relation_type, evidence
-                        ) VALUES (?, ?, ?, ?, ?)
+                            cabinet_id, project_id, source_document_code, target_document_code, relation_type, evidence
+                        ) VALUES (?, ?, ?, ?, ?, ?)
                         """,
                         (
+                            cabinet_id,
                             project_id,
                             item["source_document_code"],
                             item["target_document_code"],
@@ -185,10 +191,11 @@ class ProjectBuilderRepository:
                     connection.execute(
                         """
                         INSERT INTO project_deficits (
-                            project_id, required_type, severity, summary, details
-                        ) VALUES (?, ?, ?, ?, ?)
+                            cabinet_id, project_id, required_type, severity, summary, details
+                        ) VALUES (?, ?, ?, ?, ?, ?)
                         """,
                         (
+                            cabinet_id,
                             project_id,
                             item["required_type"],
                             item["severity"],
@@ -200,17 +207,17 @@ class ProjectBuilderRepository:
             connection.execute(
                 """
                 INSERT INTO module_events (event_type, details)
-                VALUES (?, ?)
+                VALUES (?, ?, ?)
                 """,
-                ("seed_demo_data", "Inserted demo projects, document links and deficits"),
+                (cabinet_id, "seed_demo_data", "Inserted demo projects, document links and deficits"),
             )
             connection.commit()
 
-    def add_module_event(self, event_type: str, details: str) -> None:
+    def add_module_event(self, event_type: str, details: str, cabinet_id: str = "default") -> None:
         with self._connect() as connection:
             connection.execute(
-                "INSERT INTO module_events (event_type, details) VALUES (?, ?)",
-                (event_type, details),
+                "INSERT INTO module_events (cabinet_id, event_type, details) VALUES (?, ?, ?)",
+                (cabinet_id, event_type, details),
             )
             connection.commit()
 
@@ -224,16 +231,18 @@ class ProjectBuilderRepository:
         summary: str,
         status: str,
         artifacts: str,
+        cabinet_id: str = "default",
     ) -> None:
         with self._connect() as connection:
             connection.execute(
                 """
                 INSERT INTO task_registry_log (
-                    task_id, source_agent, target_agent, module_name,
+                    cabinet_id, task_id, source_agent, target_agent, module_name,
                     action_type, summary, status, artifacts
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
+                    cabinet_id,
                     task_id,
                     source_agent,
                     target_agent,
@@ -340,52 +349,57 @@ class ProjectBuilderRepository:
             ).fetchall()
         return [ProjectDeficit.from_row(row) for row in rows]
 
-    def list_module_events(self, limit: int = 10) -> list[dict[str, str]]:
+    def list_module_events(self, limit: int = 10, cabinet_id: str = "default") -> list[dict[str, str]]:
         with self._connect() as connection:
             rows = connection.execute(
                 """
                 SELECT event_type, details, created_at
                 FROM module_events
+                WHERE cabinet_id = ?
                 ORDER BY id DESC
                 LIMIT ?
                 """,
-                (limit,),
+                (cabinet_id, limit),
             ).fetchall()
         return [dict(row) for row in rows]
 
-    def list_task_registry(self, limit: int = 10) -> list[TaskRegistryEntry]:
+    def list_task_registry(self, limit: int = 10, cabinet_id: str = "default") -> list[TaskRegistryEntry]:
         with self._connect() as connection:
             rows = connection.execute(
                 """
                 SELECT task_id, source_agent, target_agent, module_name, action_type,
                        summary, status, artifacts, created_at
                 FROM task_registry_log
+                WHERE cabinet_id = ?
                 ORDER BY id DESC
                 LIMIT ?
                 """,
-                (limit,),
+                (cabinet_id, limit),
             ).fetchall()
         return [TaskRegistryEntry(**dict(row)) for row in rows]
 
-    def get_status_counts(self) -> dict[str, Any]:
+    def get_status_counts(self, cabinet_id: str = "default") -> dict[str, Any]:
         with self._connect() as connection:
             totals = connection.execute(
                 """
                 SELECT
-                    (SELECT COUNT(*) FROM projects) AS total_projects,
-                    (SELECT COUNT(*) FROM project_documents) AS total_documents,
-                    (SELECT COUNT(*) FROM project_links) AS total_links,
-                    (SELECT COUNT(*) FROM project_deficits) AS total_deficits,
-                    (SELECT COUNT(*) FROM projects WHERE status = 'complete') AS complete_projects
-                """
+                    (SELECT COUNT(*) FROM projects WHERE cabinet_id = ?) AS total_projects,
+                    (SELECT COUNT(*) FROM project_documents WHERE cabinet_id = ?) AS total_documents,
+                    (SELECT COUNT(*) FROM project_links WHERE cabinet_id = ?) AS total_links,
+                    (SELECT COUNT(*) FROM project_deficits WHERE cabinet_id = ?) AS total_deficits,
+                    (SELECT COUNT(*) FROM projects WHERE cabinet_id = ? AND status = 'complete') AS complete_projects
+                """,
+                (cabinet_id, cabinet_id, cabinet_id, cabinet_id, cabinet_id),
             ).fetchone()
             last_event = connection.execute(
                 """
                 SELECT event_type, details, created_at
                 FROM module_events
+                WHERE cabinet_id = ?
                 ORDER BY id DESC
                 LIMIT 1
-                """
+                """,
+                (cabinet_id,),
             ).fetchone()
         return {
             "total_projects": totals["total_projects"],

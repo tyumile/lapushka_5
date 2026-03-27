@@ -1,4 +1,5 @@
 from app.orchestrator import OrchestratorProfile
+from app.statuses import TASK_ACTION_TYPES, TASK_STATUSES
 
 
 def create_orchestrator() -> OrchestratorProfile:
@@ -15,4 +16,6 @@ def create_orchestrator() -> OrchestratorProfile:
             "Does not store other modules' domain data locally.",
             "Does not provide shell frontend behavior from this module.",
         ),
+        action_types=TASK_ACTION_TYPES,
+        statuses=TASK_STATUSES,
     )

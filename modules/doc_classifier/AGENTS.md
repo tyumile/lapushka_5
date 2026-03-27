@@ -20,18 +20,36 @@
 - Нужно хранить исходный статус, статус распознавания и статус классификации.
 - Нужно уметь повторно прогонять документ без поломки данных.
 - UI должен позволять видеть, что было распознано и как классифицировано.
+- Все пользовательские тексты в UI должны быть на русском языке.
+- Агент может читать файлы во всех других папках проекта для анализа и поиска контекста.
+- Агент не должен редактировать чужие папки без отдельного явного разрешения пользователя.
+- UI всегда строится с относительными ссылками и формами, чтобы модуль мог работать как напрямую, так и под прокси с любым path-prefix (навигация, rerun, sync и карточки используют относительные пути).
+- Если документ был классифицирован только по имени файла (fallback) без подтвержденного текста, его статус должен быть needs_review, confidence низкий, поля пустые и соответствующая заметка про fallback.
+- Схема полей из AI-ответа считается строгой: новые поля не принимаются, а модель обязана возвращать только допустимые name для выбранного document_type и не подставлять данные из имени файла.
+- Любой документ, который уходит на распознавание, должен сначала идти через внешний AI-агент; локальный fallback по имени файла допускается только после неуспешных попыток внешнего вызова и должен явно помечаться как fallback.
+- При сетевой ошибке, таймауте или временном ответе внешнего AI-агента нужно делать до 3 повторных попыток перед fallback или ошибкой.
+- PDF без текстового слоя не должны сразу уходить в heuristic; сначала обязателен внешний AI через file/image путь.
+- Сценарии `sync`, `rerun`, открытие документа и ссылка `Файл` обязаны сохранять текущий `cabinet_id`; sync одного кабинета не должен затрагивать документы другого кабинета.
+- В реестре `/documents` основной столбец должен показывать название материала или продукции, имя файла идет второй строкой под ним, а распознанные поля выводятся отдельными колонками.
+- Кнопка `Файл` в UI должна открывать исходный внешний файл; для Google Drive — ссылку на конкретный файл, для Яндекс Диска по возможности тоже ссылку на конкретный файл, а не на папку источника.
 
 ## Особые запреты
 - Не реализовывать функции импорта и синхронизации.
 - Не реализовывать проектные связи и аналитические выводы о нехватке документов.
+- Не расширять существующие таблицы, API, JSON, формы, страницы и layout без прямого требования задачи.
+- Не добавлять новые колонки, поля, секции, фильтры, кнопки, маршруты и служебные блоки, если это не было явно запрошено.
+- Не перестраивать уже готовые страницы, таблицы и карточки документов, если задача требует только локального изменения.
 
 ## Команда task
 По команде `task` агент этого модуля обязан:
-- сначала смотреть SQL-реестр задач как источник правды;
+- сначала смотреть SQL workflow-базу как источник правды;
+- сначала читать свою очередь через `./task mine --agent doc_classifier --cabinet-id <cabinet_id> --limit 20`;
+- если в очереди есть запись, брать верхнюю запись как свою текущую задачу;
 - затем смотреть Google Sheets только как дашборд;
-- искать записи по `module_name=doc_classifier`, своему `target_agent` или нужному `task_id`;
-- при начале работы добавлять новую запись со статусом `in_progress`;
-- при завершении, handoff, блокере или ошибке добавлять новую запись и не менять старые.
+- при начале работы вести задачу через `start` и `progress`;
+- после выполнения создавать отдельный handoff для каждого reviewer-а, который должен проверить задачу;
+- в handoff обязательно писать, что сделано, где проверять и что именно reviewer должен проверить;
+- при блокере или завершении этапа добавлять новую запись и не менять историю.
 
 Где смотреть:
 - `shared/task_registry.sql`
@@ -39,26 +57,32 @@
 - `.env` для `GOOGLE_SHEETS_DASHBOARD_ID` и `GOOGLE_SHEETS_DASHBOARD_URL`
 
 Куда записывать:
-- в SQL-таблицу `task_registry` через `./task add ...`;
+- в SQL-таблицы `tasks`, `task_handoffs`, `task_reviews`, `task_events` через `./task add ...`;
 - в Google Sheets только через `./task add ... --sync`;
 - руками в таблицу агент doc_classifier ничего не пишет.
 
 Команды:
-- смотреть задачи: `./task list --module-name doc_classifier --limit 20`
-- завершать запись: `./task add ... --module-name doc_classifier --sync`
+- смотреть свои задачи: `./task mine --agent doc_classifier --cabinet-id <cabinet_id> --limit 20`
+- смотреть карточку задачи: `./task show --task-id <task_id> --cabinet-id <cabinet_id>`
+- смотреть историю задачи: `./task list --task-id <task_id> --cabinet-id <cabinet_id> --limit 20`
+- передавать в review: `./task add ... --cabinet-id <cabinet_id> --action-type handoff --module-name doc_classifier --sync`
+- завершать этап: `./task add ... --cabinet-id <cabinet_id> --action-type done --module-name doc_classifier --sync`
 - запускать модуль: `./modulectl start doc_classifier`
 - смотреть статус: `./modulectl status doc_classifier`
 - проверять доступность: `./modulectl health doc_classifier`
 - останавливать модуль: `./modulectl stop doc_classifier`
+- рабочий порт модуля: `8002`
 
 Обязательное правило:
-- перед работой читать задачи через `./task list --module-name doc_classifier --limit 20`;
+- перед работой читать задачи через `./task mine --agent doc_classifier --cabinet-id <cabinet_id> --limit 20`;
+- не считать задачу переданной на проверку, пока не создан reviewer handoff;
 - запускать локальный UI только через `./modulectl`, а не через прямой `python main.py`;
-- после результата, handoff, blocker или ошибки выполнять `./task add ... --module-name doc_classifier --sync`;
+- запускать `doc_classifier` всегда на порту `8002`, если пользователь явно не попросил другой порт;
+- после результата, handoff, blocker или ошибки выполнять `./task add ... --cabinet-id <cabinet_id> --module-name doc_classifier --sync`;
 - не завершать работу без записи в реестр задач.
 
 Шаблоны:
 - start:
-  `./task add --task-id <task_id> --source-agent doc_classifier --target-agent doc_classifier --module-name doc_classifier --action-type start --summary "<что начато>" --status in_progress --artifacts "<paths>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent doc_classifier --target-agent doc_classifier --module-name doc_classifier --action-type start --summary "<что начато>" --status in_progress --artifacts "<paths>" --sync`
 - handoff:
-  `./task add --task-id <task_id> --source-agent doc_classifier --target-agent <reviewer_or_next_module> --module-name doc_classifier --action-type handoff --summary "<что готово>" --status done --artifacts "<paths>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent doc_classifier --target-agent <reviewer_or_next_module> --module-name doc_classifier --action-type handoff --status pending --summary "<что готово>" --implementation-report "<где и как проверять>" --checks-required "<что reviewer должен проверить>" --artifacts "<paths>" --sync`

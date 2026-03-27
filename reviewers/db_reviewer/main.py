@@ -1,5 +1,8 @@
+from app.reviewer import build_reviewer_overview
+
+
 def main() -> None:
-    print("Starting db_reviewer...")
+    print(build_reviewer_overview())
 
 
 if __name__ == "__main__":

@@ -4,3 +4,35 @@
 2026-03-25 11:55:27,651 INFO app.bootstrap Starting project_builder on http://127.0.0.1:8103
 2026-03-25 12:04:14,743 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
 2026-03-25 12:44:41,739 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-26 10:01:29,569 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8103
+2026-03-26 10:15:44,088 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8103
+2026-03-26 10:19:22,187 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-26 11:58:07,905 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-26 12:15:14,442 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-26 12:32:22,008 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-26 12:37:35,204 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-26 12:42:01,551 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-26 12:45:28,119 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-27 09:46:55,605 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-27 09:56:53,873 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-27 10:01:42,597 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-27 10:02:19,996 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-27 10:08:25,376 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-27 10:41:58,035 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-27 10:49:47,618 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-27 11:00:50,161 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-27 11:10:54,169 INFO app.bootstrap Starting project_builder on http://0.0.0.0:8003
+2026-03-27 11:25:16,348 ERROR app.service Project analysis failed for cabinet 111
+Traceback (most recent call last):
+  File "/home/dev/lapushka_5/modules/project_builder/app/service.py", line 166, in _run_analysis_in_background
+    self.analysis_runner.run(
+  File "/home/dev/lapushka_5/modules/project_builder/app/project_analysis.py", line 115, in run
+    raise ProjectAnalysisError(
+app.project_analysis.ProjectAnalysisError: Файл проекта не найден на диске: /home/dev/lapushka_5/modules/ingest_registry/1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf. Для удаленных источников ingest_registry передайте локальный путь через --project-file-path.
+2026-03-27 11:29:17,613 ERROR app.service Project analysis failed for cabinet 111
+Traceback (most recent call last):
+  File "/home/dev/lapushka_5/modules/project_builder/app/service.py", line 166, in _run_analysis_in_background
+    self.analysis_runner.run(
+  File "/home/dev/lapushka_5/modules/project_builder/app/project_analysis.py", line 115, in run
+    raise ProjectAnalysisError(
+app.project_analysis.ProjectAnalysisError: Файл проекта не найден на диске: /home/dev/lapushka_5/modules/ingest_registry/1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf. Для удаленных источников ingest_registry передайте локальный путь через --project-file-path.

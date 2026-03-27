@@ -1,0 +1,237 @@
+{
+  "project": {
+    "project_document_id": "25",
+    "project_file_name": "1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf",
+    "project_file_path": "/home/dev/lapushka_5/modules/doc_classifier/data/tmp/downloads/1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf",
+    "project_code": "1562-ЧАР-2-К1.3-Р-ЭОМ",
+    "project_name": "Комплексная многоэтажная жилая застройка с наземными паркингами и объектами соц. инфраструктуры, г. Тюмень, 2 очередь строительства",
+    "analysis_summary": "Проект представляет собой рабочую документацию раздела Электрооборудование и электроосвещение для многосекционного 17-этажного жилого дома с техподпольем и встроенными нежилыми помещениями (ПОН) на первом этаже. В проекте выделяются 4 секции здания, каждая с 17 этажами. Проект регламентирует электрооборудование по категориям надежности, типы и прокладки кабельных линий, системы учета электроэнергии, силовые и распределительные сети. Материалы включают кабели медные и алюминиевые, гофрированные трубы, электрокабели типа ВВГнг и др., а также лакокрасочные материалы и электроустановочные изделия. Нормативы включают СП 256.1325800.2016, СП 6.13130.2021, ПУЭ, ГОСТ 25129-2020 и другие. Для материалов из проектной документации найдены соответствия с существующими сертификатами качества из candidate_documents.",
+    "analysis_notes": "Проект содержит 4 модуля-секции жилого дома с 17 этажами каждая, электрооборудование относится к дисциплине ЭОМ (электрооборудование и электроосвещение). Материалы описаны в контексте кабельных линий, труб, лакокрасочных покрытий и крепежных изделий. Нормативы перечислены в тексте документа. Найдены многочисленные сертификаты качества по материалам, но часть материалов (например, анкер и гайка) не сопоставлена с документооборотом."
+  },
+  "modules": [
+    {
+      "module_id": "section_1",
+      "module_name": "Секция 1, 17 этажей",
+      "module_type": "section",
+      "building": "",
+      "section": "1",
+      "floor": "",
+      "discipline": "ЭОМ",
+      "source_reference": {
+        "page": "3",
+        "sheet": "A0",
+        "quote": "Четырехсекционное здание. Секция №1. 17 этажей. Электрооборудование и электроосвещение."
+      },
+      "materials": [
+        {
+          "material_name": "Кабели силовые, не распространяющие горение, включая огнестойкие и с пониженной токсичностью, с изоляцией и оболочкой из поливинилхлоридного пластиката, с медными жилами",
+          "document_name": "",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "Вертикальные участки потребителей СПЗ кабелем с медными жилами и огнестойким негорючим изоляционным покрытием ВВГнг(А)-FRLS"
+          },
+          "document_disk_path": "7,8 Силовые кабели.pdf",
+          "document_registry_id": "30",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Совпадение материала кабелей силовых с сертификатом соответствия на силовые кабели из поливинилхлоридного пластиката с медными жилами."
+        },
+        {
+          "material_name": "Кабель ВВГнг(А)-LS с медными жилами",
+          "document_name": "",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "Вертикальные участки остальных потребителей 1-й и II-й категорий кабелем с медными жилами и негорючим изоляционным покрытием ВВГнг(А)-LS"
+          },
+          "document_disk_path": "2 кабель ВВГнг.jpg",
+          "document_registry_id": "26",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал кабеля ВВГнг(А)-LS сопоставлен с сертификатом соответствия кабелей силовых огнестойких от ООО «Сегментэнерго»."
+        },
+        {
+          "material_name": "Гофрированная ПВХ труба легкая серия ∅20 и ∅32",
+          "document_name": "",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "Прокладка кабеля открыто на клипсах в гофрированной ПВХ трубе легкой серии ∅20, ∅32"
+          },
+          "document_disk_path": "3,4 труба гофрированная.pdf",
+          "document_registry_id": "27",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал трубы гофрированной сопоставлен с сертификатом соответствия от ООО 'ИЭК ХОЛДИНГ'."
+        },
+        {
+          "material_name": "Грунтовка антикоррозийная глифталевая ГФ-021",
+          "document_name": "",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "Фасадная часть щитка окрашивается в красный цвет... грунтовка антикоррозийная глифталевая ГФ-021"
+          },
+          "document_disk_path": "5 грунт гф 021.pdf",
+          "document_registry_id": "28",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал грунтовки ГФ-021 сопоставлен с сертификатом соответствия производителя ООО 'Стройпродукция'."
+        },
+        {
+          "material_name": "Эмаль ПФ-115",
+          "document_name": "Декларация о соответствии",
+          "document_number": "РОСС RU Д-RU.PA01.B.03869/25",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "Покрытие: эмаль ПФ-115..."
+          },
+          "document_disk_path": "6,11 эмаль.pdf",
+          "document_registry_id": "29",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал эмаль ПФ-115 сопоставлен с декларацией о соответствии ЗАО 'Эмпилс'."
+        },
+        {
+          "material_name": "Крепежные изделия: винты и гайки из различных материалов",
+          "document_name": "Сертификат соответствия",
+          "document_number": "РОСС CN.ПБ44.H15430",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "Крепежные изделия: винты, гайки в щитках и монтаже..."
+          },
+          "document_disk_path": "12,13 винт и гайка.pdf",
+          "document_registry_id": "21",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал крепежа сопоставлен с сертификатом соответствия Чайнфаст Ко., ЛТД."
+        },
+        {
+          "material_name": "Система металлических кабельных лотков торговой марки \"EKF\"",
+          "document_name": "Сертификат соответствия",
+          "document_number": "04ИДЮ101.RU.C05459",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "Применяются металлические кабельные лотки системы EKF"
+          },
+          "document_disk_path": "12,13 пластины.pdf",
+          "document_registry_id": "23",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал лотков сопоставлен с сертификатом соответствия ООО Электрорешения."
+        },
+        {
+          "material_name": "Система металлических листовых лотков и аксессуаров T-Line EKF",
+          "document_name": "Сертификат соответствия",
+          "document_number": "РОСС RU.32623.ОС11.09509",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "Металлические лотки T-Line EKF с ГОСТ 30546.1-98, ГОСТ 30546.2-98, ГОСТ 30546.3-98"
+          },
+          "document_disk_path": "12,13 лоток крышка.pdf",
+          "document_registry_id": "22",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал металлических лотков сопоставлен с сертификатом соответствия ООО 'Электрорешения'."
+        },
+        {
+          "material_name": "12,13 анкер, гайка",
+          "document_name": "12,13 анкер, гайка.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "Используются анкеры, гайки по позиции 12,13"
+          },
+          "document_disk_path": "12,13 анкер, гайка.pdf",
+          "document_registry_id": "20",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал упомянут, но отсутствует полноценный классифицированный документ с атрибутами сертификата."
+        }
+      ],
+      "norms": [
+        {
+          "norm_name": "СП 256.1325800.2016 с изм. 4 от 6.04.2021",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "Нагрузки жилого дома определены в соответствии с разделом 7.1 СП 256.1325800.2016 с изм. 4 от 6.04.2021"
+          }
+        },
+        {
+          "norm_name": "СП 6.13130.2021",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "В соответствии с п. 3.4 и 5.2 СП 6.13130.2021 ..."
+          }
+        },
+        {
+          "norm_name": "ПУЭ",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "В соответствии с ПУЭ и СП 256.1325800.2016 по степеням надежности"
+          }
+        },
+        {
+          "norm_name": "ГОСТ 25129-2020",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "Соответствует требованиям ГОСТ 25129-2020"
+          }
+        },
+        {
+          "norm_name": "ГОСТ Р 51693-2000",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "Соответствует требованиям ГОСТ Р 51693-2000"
+          }
+        },
+        {
+          "norm_name": "ГОСТ 30546.1-98, ГОСТ 30546.2-98, ГОСТ 30546.3-98",
+          "project_source": {
+            "page": "3",
+            "sheet": "A0",
+            "quote": "При использовании металлических лотков ГОСТ 30546.1-98, ГОСТ 30546.2-98, ГОСТ 30546.3-98"
+          }
+        }
+      ]
+    }
+  ],
+  "unmatched_documents": [
+    {
+      "document_registry_id": "20",
+      "document_name": "12,13 анкер, гайка.pdf",
+      "document_disk_path": "12,13 анкер, гайка.pdf",
+      "reason": "Отсутствует полноценно классифицированный сертификат качества или соответствия с необходимыми атрибутами."
+    }
+  ],
+  "analysis_warnings": [
+    "Проект не содержит явно выделенных модулей по этажам, выделены только 4 секции здания.",
+    "Часть материалов указана в общем виде без точного наименования и номеров стандартов.",
+    "Некоторые материалы (анкеры и гайки 12,13) имеют ограниченную или нечеткую связь с нормативной документацией.",
+    "Страницы и листы заданы ориентировочно на первую страницу (лист A0) из-за отсутствия точного указания страниц проекта."
+  ]
+}

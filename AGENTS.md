@@ -23,6 +23,10 @@
 - Не делать из одного модуля центр управления другим модулем.
 - Не писать код "на будущее", если это не требуется текущей задачей.
 - Не вносить массовый рефакторинг без отдельной задачи.
+- Не расширять существующие таблицы, API, JSON-ответы, CLI-аргументы, формы, страницы и layout без прямого требования текущей задачи.
+- Не добавлять новые колонки, поля, секции, фильтры, сортировки, кнопки, маршруты и служебные блоки, если пользователь явно не просил именно это.
+- Не перестраивать уже готовые страницы, таблицы и экранные блоки, если задача требует только локального изменения.
+- Если кажется, что для задачи "заодно" нужен соседний UI-блок, поле или колонка, агент обязан считать это запрещенным до явного разрешения пользователя.
 - Не хранить секреты в коде, использовать только `.env`.
 - Не менять `.env` без явного указания.
 - Не удалять существующие файлы без крайней необходимости.
@@ -96,10 +100,10 @@
 ## Команда task
 По команде `task` любой агент обязан работать в следующем порядке:
 - сначала смотреть SQL workflow-базу как источник правды;
-- первым действием читать свою актуальную очередь через `./task mine --agent <agent_name> --limit 20`;
+- первым действием читать свою актуальную очередь через `./task mine --agent <agent_name> --cabinet-id <cabinet_id> --limit 20`;
 - модульный агент берет свою верхнюю задачу и ведет ее через `start`, `progress`, `ready_for_review`, `done`, `blocked`;
 - reviewer берет свой верхний `pending` handoff и проверяет только его;
-- если нужен контекст, агент раскрывает полную карточку через `./task show --task-id <task_id>`;
+- если нужен контекст, агент раскрывает полную карточку через `./task show --task-id <task_id> --cabinet-id <cabinet_id>`;
 - затем смотреть Google Sheets только как пользовательский дашборд;
 - модульный агент после выполнения обязан создать отдельный handoff для каждого reviewer-а и тем самым перевести задачу в `ready_for_review`;
 - reviewer после проверки обязан записать verdict с `what_works`, `what_fails` и `policy_checks`;
@@ -116,6 +120,7 @@
 
 Что именно заполнять:
 - `task_id`: стабильный id одной задачи, одинаковый для всех записей по этой задаче;
+- `cabinet_id`: обязательный системный контекст для cabinet-aware задач; при чтении очереди, handoff, review и истории нужно явно указывать `--cabinet-id <cabinet_id>`;
 - `source_agent`: агент, который создает запись или handoff;
 - `target_agent`: агент, которому адресован следующий шаг или review;
 - `module_name`: имя модуля, к которому относится работа;
@@ -130,35 +135,36 @@
 - `created_at`: ставится автоматически, если не передан явно.
 
 Рабочие команды:
-- посмотреть свои актуальные задачи: `./task mine --agent <agent_name> --limit 20`
-- посмотреть карточку задачи: `./task show --task-id <task_id>`
-- посмотреть историю задачи: `./task list --task-id <task_id> --limit 20`
+- посмотреть свои актуальные задачи: `./task mine --agent <agent_name> --cabinet-id <cabinet_id> --limit 20`
+- посмотреть карточку задачи: `./task show --task-id <task_id> --cabinet-id <cabinet_id>`
+- посмотреть историю задачи: `./task list --task-id <task_id> --cabinet-id <cabinet_id> --limit 20`
 - передать задачу reviewer-у:
-  `./task add --task-id <task_id> --source-agent <module_agent> --target-agent <reviewer_agent> --module-name <module_name> --action-type handoff --status pending --summary "<что сделано>" --implementation-report "<где и как проверять>" --checks-required "<что reviewer обязан проверить>" --artifacts "<artifacts>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent <module_agent> --target-agent <reviewer_agent> --module-name <module_name> --action-type handoff --status pending --summary "<что сделано>" --implementation-report "<где и как проверять>" --checks-required "<что reviewer обязан проверить>" --artifacts "<artifacts>" --sync`
 - записать verdict reviewer-а:
-  `./task add --task-id <task_id> --source-agent <reviewer_agent> --target-agent <module_name> --module-name <module_name> --action-type review --status reviewed --result <passed|passed_with_notes|failed|blocked> --summary "<итог review>" --what-works "<что работает>" --what-fails "<что не работает>" --policy-checks "<что прошло или нарушено>" --artifacts "<artifacts>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent <reviewer_agent> --target-agent <module_name> --module-name <module_name> --action-type review --status reviewed --result <passed|passed_with_notes|failed|blocked> --summary "<итог review>" --what-works "<что работает>" --what-fails "<что не работает>" --policy-checks "<что прошло или нарушено>" --artifacts "<artifacts>" --sync`
 
 Правило завершения:
 - после handoff, review, blocker или завершения этапа агент должен запускать `./task add ... --sync`
 
 Обязательное исполнение:
-- агент не должен считать задачу начатой, пока не посмотрел свою очередь через `./task mine --agent <agent_name> ...`;
+- агент не должен считать задачу начатой, пока не посмотрел свою очередь через `./task mine --agent <agent_name> --cabinet-id <cabinet_id> ...`;
+- для cabinet-aware задач агент не должен работать с workflow без явного `--cabinet-id <cabinet_id>` при `mine`, `show`, `list` и `add`;
 - модульный агент не должен считать задачу переданной на проверку, пока не создал reviewer handoff;
 - reviewer не должен считать проверку завершенной, пока не записал структурированный verdict;
-- агент не должен отдавать финальный результат пользователю без записи результата в SQL workflow-базу и синхронизации в Google Sheets;
+- агент не должен отдавать финальный результат пользователю без записи результата в SQL workflow-базу и синхронизации в Google Sheets, кроме `prompt_reviewer`, если пользователь явно не просил фиксировать результат в task-базе;
 - если синхронизация не удалась, агент обязан явно сообщить об этом как о блокере и зафиксировать это отдельной записью при первой возможности.
 
 Готовые шаблоны:
 - process-модуль начал работу:
-  `./task add --task-id <task_id> --source-agent <module_name> --target-agent <module_name> --module-name <module_name> --action-type start --summary "<что начато>" --status in_progress --artifacts "<paths>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent <module_name> --target-agent <module_name> --module-name <module_name> --action-type start --summary "<что начато>" --status in_progress --artifacts "<paths>" --sync`
 - process-модуль передает в review:
-  `./task add --task-id <task_id> --source-agent <module_name> --target-agent <reviewer_name> --module-name <module_name> --action-type handoff --status pending --summary "<что готово к проверке>" --implementation-report "<где и как проверять>" --checks-required "<что reviewer должен проверить>" --artifacts "<paths>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent <module_name> --target-agent <reviewer_name> --module-name <module_name> --action-type handoff --status pending --summary "<что готово к проверке>" --implementation-report "<где и как проверять>" --checks-required "<что reviewer должен проверить>" --artifacts "<paths>" --sync`
 - process-модуль завершает задачу после обязательных review:
-  `./task add --task-id <task_id> --source-agent <module_name> --target-agent <module_name> --module-name <module_name> --action-type done --summary "<что завершено>" --status done --artifacts "<paths>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent <module_name> --target-agent <module_name> --module-name <module_name> --action-type done --summary "<что завершено>" --status done --artifacts "<paths>" --sync`
 - reviewer завершил проверку:
-  `./task add --task-id <task_id> --source-agent <reviewer_name> --target-agent <module_name> --module-name <module_name> --action-type review --status reviewed --result <passed|passed_with_notes|failed|blocked> --summary "<итог проверки>" --what-works "<что работает>" --what-fails "<что не работает>" --policy-checks "<что по правилам прошло или нарушено>" --artifacts "<paths>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent <reviewer_name> --target-agent <module_name> --module-name <module_name> --action-type review --status reviewed --result <passed|passed_with_notes|failed|blocked> --summary "<итог проверки>" --what-works "<что работает>" --what-fails "<что не работает>" --policy-checks "<что по правилам прошло или нарушено>" --artifacts "<paths>" --sync`
 - любой агент сообщает о блокере:
-  `./task add --task-id <task_id> --source-agent <agent_name> --target-agent <agent_name> --module-name <module_name> --action-type blocked --summary "<что мешает работе>" --status blocked --artifacts "<details>" --sync`
+  `./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent <agent_name> --target-agent <agent_name> --module-name <module_name> --action-type blocked --summary "<что мешает работе>" --status blocked --artifacts "<details>" --sync`
 
 ## Политика по безопасности
 - Не выводить секреты в логи.
@@ -179,7 +185,7 @@
 - Модульный агент перед review обязан создавать handoff с заполненными `implementation_report` и `checks_required`.
 - Reviewer обязан возвращать structured verdict: `result`, `what_works`, `what_fails`, `policy_checks`.
 - Все пользовательские тексты в UI должны быть на русском языке.
-- Система пока однокабинетная, многокабинетность описана только в `cabinets_plan.md`; ввод `cabinet_id` возможен только через отдельную задачу.
+- Система работает в cabinet-aware режиме; shell, task workflow и process-модули обязаны использовать `cabinet_id` как обязательный контекст.
 ## Политика принятия решений
 При споре между "быстрее" и "проще поддерживать" выбирать вариант, который проще поддерживать, если он не ломает сроки критически.
 

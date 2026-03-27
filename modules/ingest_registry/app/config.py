@@ -24,7 +24,7 @@ def load_settings() -> Settings:
     upload_dir = storage_dir / "uploads"
     bootstrap_dir = storage_dir / "bootstrap"
     host = os.getenv("INGEST_REGISTRY_HOST", "0.0.0.0")
-    port = int(os.getenv("INGEST_REGISTRY_PORT", "8101"))
+    port = int(os.getenv("INGEST_REGISTRY_PORT", "8001"))
     return Settings(
         module_name="ingest_registry",
         host=host,

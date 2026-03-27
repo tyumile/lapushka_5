@@ -1,0 +1,576 @@
+{
+  "project_document": {
+    "id": 25,
+    "source_title": "Google Drive: ЭОМ",
+    "source_type": "google_drive",
+    "source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+    "file_name": "1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf",
+    "file_path": "1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf",
+    "absolute_file_path": "/home/dev/lapushka_5/modules/ingest_registry/1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf",
+    "file_date": "2026-03-26T12:01:57+00:00",
+    "page_count": 135,
+    "file_size": 29562055
+  },
+  "candidate_documents": [
+    {
+      "id": 30,
+      "source_title": "Google Drive: ЭОМ",
+      "source_type": "google_drive",
+      "source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+      "file_name": "7,8 Силовые кабели.pdf",
+      "file_path": "7,8 Силовые кабели.pdf",
+      "absolute_file_path": "/home/dev/lapushka_5/modules/ingest_registry/7,8 Силовые кабели.pdf",
+      "file_date": "2026-03-26T12:01:57+00:00",
+      "page_count": 6,
+      "file_size": 67028,
+      "doc_classifier": {
+        "recognition_status": "done",
+        "classification_status": "done",
+        "classification_label": "quality_document",
+        "classification_reason": "Документ содержит все ключевые элементы сертификата качества материалов: тип сертификата, номер, даты, название материала и продукции, заявителя и производителя, орган сертификации, информацию о партии и объеме продукции, а также нормативную документацию и результаты испытаний.",
+        "classification_confidence": 0.99,
+        "recognized_text_excerpt": "Реестр сертификатов соответствия\nОсновные сведения\nТип сертификата Сертификат соответствия требованиям технического регламента Евразийского экономического союза (технического регламента Таможенного союза)...",
+        "fields": [
+          {
+            "name": "material_name",
+            "label": "Наименование продукции",
+            "value": "Кабели силовые, не распространяющие горение, включая огнестойкие и с пониженной токсичностью, с изоляцией и оболочкой из поливинилхлоридного пластиката, с медными жилами"
+          },
+          {
+            "name": "document_name",
+            "label": "Название документа",
+            "value": ""
+          },
+          {
+            "name": "document_number",
+            "label": "Номер документа",
+            "value": ""
+          },
+          {
+            "name": "issue_date",
+            "label": "Дата выдачи",
+            "value": ""
+          },
+          {
+            "name": "certifying_body",
+            "label": "Сертифицирующий орган",
+            "value": ""
+          },
+          {
+            "name": "applicant_or_manufacturer",
+            "label": "Заявитель или производитель",
+            "value": ""
+          },
+          {
+            "name": "manufacturer",
+            "label": "Производитель",
+            "value": ""
+          },
+          {
+            "name": "batch_or_lot",
+            "label": "Партия",
+            "value": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": 29,
+      "source_title": "Google Drive: ЭОМ",
+      "source_type": "google_drive",
+      "source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+      "file_name": "6,11 эмаль.pdf",
+      "file_path": "6,11 эмаль.pdf",
+      "absolute_file_path": "/home/dev/lapushka_5/modules/ingest_registry/6,11 эмаль.pdf",
+      "file_date": "2026-03-26T12:01:57+00:00",
+      "page_count": 1,
+      "file_size": 674297,
+      "doc_classifier": {
+        "recognition_status": "done",
+        "classification_status": "done",
+        "classification_label": "quality_document",
+        "classification_reason": "Документ называется 'Декларация о соответствии', содержит данные о заявителе, продукте (эмаль ПФ-115), стандартах ГОСТ, протоколах испытаний и сроках действия декларации. Это типичный документ о качестве и соответствии продукции.",
+        "classification_confidence": 0.95,
+        "recognized_text_excerpt": "РОССИЙСКАЯ ФЕДЕРАЦИЯ\nДЕКЛАРАЦИЯ О СООТВЕТСТВИИ\n№ РОСС RU Д-RU.PA01.B.03869/25\nЗАЯВИТЕЛЬ: ЗАКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"ЭМПИЛС\", ЗАО \"ЭМПИЛС\", место нахождения 344016, РОССИЯ, РОСТОВСКАЯ ОБЛАСТЬ, Г. РОСТОВ-НА-ДОНУ, ПЕР. 1-Й МАШИНОСТРОИТЕЛЬНЫЙ, Д. 21, ОГРН 1026104141260, ИНН 6167008343,\nтелефон +7 8632786808, электронная почта empils@empils.ru\nВ ЛИЦЕ: ГЕНЕРАЛЬНЫЙ ДИРЕКТОР СТОЛБЧЕНКО ВИКТОР АНАТОЛЬЕВИЧ\nЗАЯВЛЯЕТ, ЧТО ПРОДУКЦИЯ Эмаль ПФ-115,\nДокумент, в соответствии с которым изготовлена продукция: \"Эмали ПФ-115. Технические условия\" ГОСТ 6465-2023.\nСвидетельство о государственной регистрации продукции № RU.61.РЦ.10.015.Е.000037.09.24 от 20.09.2024.\nЗАКРЫТОЕ АКЦИО ...[обрезано]",
+        "fields": [
+          {
+            "name": "material_name",
+            "label": "Название материала",
+            "value": "Эмаль ПФ-115"
+          },
+          {
+            "name": "document_name",
+            "label": "Название документа",
+            "value": ""
+          },
+          {
+            "name": "document_number",
+            "label": "Номер документа",
+            "value": "РОСС RU Д-RU.PA01.B.03869/25"
+          },
+          {
+            "name": "issue_date",
+            "label": "Дата выдачи",
+            "value": ""
+          },
+          {
+            "name": "certifying_body",
+            "label": "Сертифицирующий орган",
+            "value": ""
+          },
+          {
+            "name": "applicant_or_manufacturer",
+            "label": "Заявитель или производитель",
+            "value": ""
+          },
+          {
+            "name": "manufacturer",
+            "label": "Производитель",
+            "value": "ЗАКРЫТОЕ АКЦИОНЕРНОЕ ОБЩЕСТВО \"ЭМПИЛС\", ЗАО \"ЭМПИЛС\""
+          },
+          {
+            "name": "batch_or_lot",
+            "label": "Партия",
+            "value": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": 28,
+      "source_title": "Google Drive: ЭОМ",
+      "source_type": "google_drive",
+      "source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+      "file_name": "5 грунт гф 021.pdf",
+      "file_path": "5 грунт гф 021.pdf",
+      "absolute_file_path": "/home/dev/lapushka_5/modules/ingest_registry/5 грунт гф 021.pdf",
+      "file_date": "2026-03-26T12:01:57+00:00",
+      "page_count": 1,
+      "file_size": 1425709,
+      "doc_classifier": {
+        "recognition_status": "done",
+        "classification_status": "done",
+        "classification_label": "quality_document",
+        "classification_reason": "Документ содержит все атрибуты сертификата качества: регистрационный номер, срок действия, наименование продукции, сертификат выдан изготовителем, орган по сертификации, основание (протокол испытаний), а также сведения об изготовителе и нормативных документах.",
+        "classification_confidence": 0.99,
+        "recognized_text_excerpt": "СЕРТИФИКАТ СООТВЕТСТВИЯ Регистрационный номер РОСС RU.32001.04ИБФ1.ОСП28.49824 Срок действия с 25.03.2024 по 24.03.2027 ОРГАН ПО СЕРТИФИКАЦИИ № РОСС RU.32001.04ИБФ1.ОСП28, Общество с ограниченной ответственностью \"Прогресс\" ... ПРОДУКЦИЯ Грунтовки антикоррозийные глифталевые: ГФ-0119, ГФ-021, ГФ-021 быстросохнущая. Серийный выпуск ... ИЗГОТОВИТЕЛЬ Общество с ограниченной ответственностью «Стройпродукция» ... СООТВЕТСТВУЕТ ТРЕБОВАНИЯМ НОРМАТИВНЫХ ДОКУМЕНТОВ ГОСТ 25129-2020, ГОСТ Р 51693-2000 ... НА ОСНОВАНИИ Протокола испытаний (исследований) № ИЛ10-33402 от 21.03.2024 г. Испытательной лаборатории ООО «СИСТЕМА» ...",
+        "fields": [
+          {
+            "name": "material_name",
+            "label": "Название материала",
+            "value": ""
+          },
+          {
+            "name": "document_name",
+            "label": "Название документа",
+            "value": ""
+          },
+          {
+            "name": "document_number",
+            "label": "Номер документа",
+            "value": ""
+          },
+          {
+            "name": "issue_date",
+            "label": "Дата выдачи",
+            "value": ""
+          },
+          {
+            "name": "certifying_body",
+            "label": "Сертифицирующий орган",
+            "value": ""
+          },
+          {
+            "name": "applicant_or_manufacturer",
+            "label": "Заявитель или производитель",
+            "value": ""
+          },
+          {
+            "name": "manufacturer",
+            "label": "Изготовитель",
+            "value": "Общество с ограниченной ответственностью «Стройпродукция»"
+          },
+          {
+            "name": "batch_or_lot",
+            "label": "Партия",
+            "value": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": 27,
+      "source_title": "Google Drive: ЭОМ",
+      "source_type": "google_drive",
+      "source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+      "file_name": "3,4 труба гофрированная.pdf",
+      "file_path": "3,4 труба гофрированная.pdf",
+      "absolute_file_path": "/home/dev/lapushka_5/modules/ingest_registry/3,4 труба гофрированная.pdf",
+      "file_date": "2026-03-26T12:01:57+00:00",
+      "page_count": 3,
+      "file_size": 1021933,
+      "doc_classifier": {
+        "recognition_status": "done",
+        "classification_status": "done",
+        "classification_label": "quality_document",
+        "classification_reason": "Документ является сертификатом соответствия с четко выделенными реквизитами, соответствующими сертификатам качества, с подробным описанием продукции (трубы гофрированные из ПВХ ELASTA), информацией о заявителе и изготовителе, номером и сроком действия сертификата.",
+        "classification_confidence": 0.95,
+        "recognized_text_excerpt": "ЕВРАЗИЙСКИЙ ЭКОНОМИЧЕСКИЙ СОЮЗ\nСЕРТИФИКАТ СООТВЕТСТВИЯ\n№ ЕАЭС BY/112 02.01. TP043 033.01 00035\nСерия BY № 0021624\nОРГАН ПО СЕРТИФИКАЦИИ ...\nЗАЯВИТЕЛЬ Общество с ограниченной ответственностью «ИЭК ХОЛДИНГ» ...\nИЗГОТОВИТЕЛЬ Общество с ограниченной ответственностью «ИЭК ХОЛДИНГ» ...\nПРОДУКЦИЯ Трубы гибкие гофрированные из ПВХ серии ELASTA ...\nСРОК ДЕЙСТВИЯ С 21.06.2021 ПО 20.06.2026 ВКЛЮЧИТЕЛЬНО\nРуководитель ... Подобаев Сергей Михайлович\nЭксперт ... Кузьминов Дмитрий Игоревич",
+        "fields": [
+          {
+            "name": "material_name",
+            "label": "Название материала",
+            "value": ""
+          },
+          {
+            "name": "document_name",
+            "label": "Название документа",
+            "value": ""
+          },
+          {
+            "name": "document_number",
+            "label": "Номер документа",
+            "value": ""
+          },
+          {
+            "name": "issue_date",
+            "label": "Дата выдачи",
+            "value": ""
+          },
+          {
+            "name": "certifying_body",
+            "label": "Сертифицирующий орган",
+            "value": ""
+          },
+          {
+            "name": "applicant_or_manufacturer",
+            "label": "Заявитель или производитель",
+            "value": ""
+          },
+          {
+            "name": "manufacturer",
+            "label": "Изготовитель",
+            "value": "Общество с ограниченной ответственностью «ИЭК ХОЛДИНГ», Российская Федерация, Московская область, г. Подольск"
+          },
+          {
+            "name": "batch_or_lot",
+            "label": "Партия",
+            "value": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": 26,
+      "source_title": "Google Drive: ЭОМ",
+      "source_type": "google_drive",
+      "source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+      "file_name": "2 кабель ВВГнг.jpg",
+      "file_path": "2 кабель ВВГнг.jpg",
+      "absolute_file_path": "/home/dev/lapushka_5/modules/ingest_registry/2 кабель ВВГнг.jpg",
+      "file_date": "2026-03-26T12:01:57+00:00",
+      "page_count": null,
+      "file_size": 629999,
+      "doc_classifier": {
+        "recognition_status": "done",
+        "classification_status": "done",
+        "classification_label": "quality_document",
+        "classification_reason": "Документ явно является сертификатом соответствия с указанием органа сертификации, заявителя, изготовителя, продукции, нормативной базы, даты выдачи и срока действия. Тип документа качества соответствует сертификату соответствия. Наличие номера, даты, стандарта и сертификационного органа подтверждает тип документа.",
+        "classification_confidence": 0.99,
+        "recognized_text_excerpt": "СЕРТИФИКАТ СООТВЕТСТВИЯ\n№ ЕАЭС RU C-RU.HA75.B.01045/21\nСерия RU № 0336293\nОРГАН ПО СЕРТИФИКАЦИИ «Тест Сертификация» Общества с ограниченной ответственностью «Система Сертификационной Протекции»...\nЗАЯВИТЕЛЬ ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «СЕГМЕНТЭНЕРГО»...\nИЗГОТОВИТЕЛЬ ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ «СЕГМЕНТЭНЕРГО»...\nПРОДУКЦИЯ Кабели силовые огнестойкие, не распространяющие горение при групповой прокладке...\nКОД ТН ВЭД ЕАЭС 8544 49 910 8\nСООТВЕТСТВУЕТ ТРЕБОВАНИЯМ Технического регламента Таможенного союза ТР ТС 004/2011...\nСЕРТИФИКАТ СООТВЕТСТВИЯ ВЫДАН НА ОСНОВАНИИ протоколов сертификационных испытаний...\nСРОК ДЕЙСТВИЯ С 19.08.2021 ПО 18.08.2026 ВКЛЮЧИТЕЛЬНО",
+        "fields": [
+          {
+            "name": "material_name",
+            "label": "Название материала",
+            "value": ""
+          },
+          {
+            "name": "document_name",
+            "label": "Название документа",
+            "value": ""
+          },
+          {
+            "name": "document_number",
+            "label": "Номер документа",
+            "value": ""
+          },
+          {
+            "name": "issue_date",
+            "label": "Дата выдачи",
+            "value": ""
+          },
+          {
+            "name": "certifying_body",
+            "label": "Сертифицирующий орган",
+            "value": ""
+          },
+          {
+            "name": "applicant_or_manufacturer",
+            "label": "Заявитель или производитель",
+            "value": ""
+          },
+          {
+            "name": "manufacturer",
+            "label": "Изготовитель",
+            "value": "ООО «Сегментэнерго»"
+          },
+          {
+            "name": "batch_or_lot",
+            "label": "Партия",
+            "value": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": 24,
+      "source_title": "Google Drive: ЭОМ",
+      "source_type": "google_drive",
+      "source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+      "file_name": "14,15,16,17 кабели ИЗМЕНА.pdf",
+      "file_path": "14,15,16,17 кабели ИЗМЕНА.pdf",
+      "absolute_file_path": "/home/dev/lapushka_5/modules/ingest_registry/14,15,16,17 кабели ИЗМЕНА.pdf",
+      "file_date": "2026-03-26T12:01:57+00:00",
+      "page_count": 2,
+      "file_size": 1011984,
+      "doc_classifier": {
+        "recognition_status": "queued",
+        "classification_status": "queued",
+        "classification_label": "quality_document",
+        "classification_reason": "Документ содержит заголовок 'Сертификат соответствия', указание органа сертификации, заявителя, изготовителя, данные о продукции, дату и номер сертификата, а также приложение с перечнем продукции. Документ явно относится к качественной документации на материалы (кабели).",
+        "classification_confidence": 0.95,
+        "recognized_text_excerpt": "ЕВРАЗИЙСКИЙ ЭКОНОМИЧЕСКИЙ СОЮЗ СЕРТИФИКАТ СООТВЕТСТВИЯ № ЕАЭС RU C-RU.АЮ64.В.00727/25 Серия RU № 0570923 ОРГАН ПО СЕРТИФИКАЦИИ продукции и услуг «ПОЛИСЕРТ» Автономной некоммерческой организации по сертификации «Электросерт» (ОС «ПОЛИСЕРТ») АНО по сертификации «Электросерт». Место нахождения: 129226, Россия, г. Москва, внер.г. муниципальный округ Останкинский, ул. Сельскохозяйственная, д. 12А, стр. 1. Место осуществления деятельности: 129226, Россия, г. Москва, ул. Сельскохозяйственная, д. 12А, стр. 1. ОГРН: 1037739013355. Телефон: +7 (495) 640-26-08, +7 (495) 995-10-26. Адрес электронной почты: info@certif.ru. Уникальный номер записи об аккредитации в реестре ...[обрезано]",
+        "fields": [
+          {
+            "name": "material_name",
+            "label": "Название материала",
+            "value": ""
+          },
+          {
+            "name": "document_name",
+            "label": "Название документа",
+            "value": ""
+          },
+          {
+            "name": "document_number",
+            "label": "Номер документа",
+            "value": ""
+          },
+          {
+            "name": "issue_date",
+            "label": "Дата выдачи",
+            "value": ""
+          },
+          {
+            "name": "certifying_body",
+            "label": "Сертифицирующий орган",
+            "value": ""
+          },
+          {
+            "name": "applicant_or_manufacturer",
+            "label": "Заявитель или производитель",
+            "value": ""
+          },
+          {
+            "name": "manufacturer",
+            "label": "Изготовитель",
+            "value": "Общество с ограниченной ответственностью «Конкорд» (ООО «Конкорд»)"
+          },
+          {
+            "name": "batch_or_lot",
+            "label": "Партия",
+            "value": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": 23,
+      "source_title": "Google Drive: ЭОМ",
+      "source_type": "google_drive",
+      "source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+      "file_name": "12,13 пластины.pdf",
+      "file_path": "12,13 пластины.pdf",
+      "absolute_file_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 пластины.pdf",
+      "file_date": "2026-03-26T12:01:57+00:00",
+      "page_count": 1,
+      "file_size": 423599,
+      "doc_classifier": {
+        "recognition_status": "done",
+        "classification_status": "done",
+        "classification_label": "quality_document",
+        "classification_reason": "Документ является сертификатом соответствия на продукцию, выданной органом по сертификации. Содержатся данные об изготовителе, сертификате, нормативных документах и сроках действия.",
+        "classification_confidence": 0.95,
+        "recognized_text_excerpt": "ДОБРОВОЛЬНАЯ СЕРТИФИКАЦИЯ ПРОДУКЦИИ...\nСЕРТИФИКАТ СООТВЕТСТВИЯ № 04ИДЮ101.RU.C05459\nСрок действия с 21.03.2023 по 20.03.2026\nОРГАН ПО СЕРТИФИКАЦИИ: ООО «СамараТест»...\nПРОДУКЦИЯ: Система металлических кабельных лотков торговой марки EKF\nСООТВЕТСТВУЕТ НОРМАТИВНЫМ ДОКУМЕНТАМ ГОСТ Р 52868-2021\nИЗГОТОВИТЕЛЬ: ООО «Электрорешения»\nСЕРТИФИКАТ ВЫДАН: ООО «Электрорешения»\nНА ОСНОВАНИИ: Протокола испытаний № 091-03-23-Д-ВТ от 20.03.2023",
+        "fields": [
+          {
+            "name": "material_name",
+            "label": "Название материала",
+            "value": ""
+          },
+          {
+            "name": "document_name",
+            "label": "Название документа",
+            "value": ""
+          },
+          {
+            "name": "document_number",
+            "label": "Номер документа",
+            "value": ""
+          },
+          {
+            "name": "issue_date",
+            "label": "Дата выдачи",
+            "value": ""
+          },
+          {
+            "name": "certifying_body",
+            "label": "Сертифицирующий орган",
+            "value": ""
+          },
+          {
+            "name": "applicant_or_manufacturer",
+            "label": "Заявитель или производитель",
+            "value": ""
+          },
+          {
+            "name": "manufacturer",
+            "label": "Изготовитель",
+            "value": "Общество с ограниченной ответственностью «Электрорешения»"
+          },
+          {
+            "name": "batch_or_lot",
+            "label": "Партия",
+            "value": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": 22,
+      "source_title": "Google Drive: ЭОМ",
+      "source_type": "google_drive",
+      "source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+      "file_name": "12,13 лоток крышка.pdf",
+      "file_path": "12,13 лоток крышка.pdf",
+      "absolute_file_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 лоток крышка.pdf",
+      "file_date": "2026-03-26T12:01:57+00:00",
+      "page_count": 1,
+      "file_size": 631380,
+      "doc_classifier": {
+        "recognition_status": "empty",
+        "classification_status": "done",
+        "classification_label": "quality_document",
+        "classification_reason": "Имя файла содержит наименование строительного материала или изделия.",
+        "classification_confidence": 0.58,
+        "recognized_text_excerpt": "",
+        "fields": [
+          {
+            "name": "material_name",
+            "label": "Название материала",
+            "value": "12,13 лоток крышка"
+          },
+          {
+            "name": "document_name",
+            "label": "Название документа",
+            "value": "12,13 лоток крышка.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": 21,
+      "source_title": "Google Drive: ЭОМ",
+      "source_type": "google_drive",
+      "source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+      "file_name": "12,13 винт и гайка.pdf",
+      "file_path": "12,13 винт и гайка.pdf",
+      "absolute_file_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 винт и гайка.pdf",
+      "file_date": "2026-03-26T12:01:57+00:00",
+      "page_count": 8,
+      "file_size": 12353736,
+      "doc_classifier": {
+        "recognition_status": "done",
+        "classification_status": "done",
+        "classification_label": "quality_document",
+        "classification_reason": "Документ содержит сертификат соответствия и приложения с указанием номера сертификата, даты действия, органа сертификации, производителя, протокола испытаний, а также детальное перечисление продукции, к которым распространяется сертификат.",
+        "classification_confidence": 0.99,
+        "recognized_text_excerpt": "Сертификат соответствия № РОСС CN.ПБ44.Н15430 с 14.07.2023 по 13.07.2026; орган по сертификации ООО Рус-Тест, Москва; изготовитель Чайнафаст Ко., ЛТД, Китай; сертификат выдан ООО КРИТ, Санкт-Петербург; протокол испытаний CC/22-5405 от 14.07.2023; перечень продукции — изделия крепежные из латуни, меди, бронзы, полиамида и пр., с соответствующими классами прочности и ГОСТами; несколько приложений с детальным перечислением продукции (винты, гайки, болты, шайбы и др.) с обозначениями и ГОСТ.",
+        "fields": [
+          {
+            "name": "material_name",
+            "label": "Название материала",
+            "value": ""
+          },
+          {
+            "name": "document_name",
+            "label": "Название документа",
+            "value": ""
+          },
+          {
+            "name": "document_number",
+            "label": "Номер документа",
+            "value": ""
+          },
+          {
+            "name": "issue_date",
+            "label": "Дата выдачи",
+            "value": ""
+          },
+          {
+            "name": "certifying_body",
+            "label": "Сертифицирующий орган",
+            "value": ""
+          },
+          {
+            "name": "applicant_or_manufacturer",
+            "label": "Заявитель или производитель",
+            "value": ""
+          },
+          {
+            "name": "manufacturer",
+            "label": "Производитель",
+            "value": ""
+          },
+          {
+            "name": "batch_or_lot",
+            "label": "Партия",
+            "value": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": 20,
+      "source_title": "Google Drive: ЭОМ",
+      "source_type": "google_drive",
+      "source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+      "file_name": "12,13 анкер, гайка.pdf",
+      "file_path": "12,13 анкер, гайка.pdf",
+      "absolute_file_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 анкер, гайка.pdf",
+      "file_date": "2026-03-26T12:01:57+00:00",
+      "page_count": 12,
+      "file_size": 16585235,
+      "doc_classifier": {
+        "recognition_status": "empty",
+        "classification_status": "done",
+        "classification_label": "quality_document",
+        "classification_reason": "Имя файла содержит наименование строительного материала или изделия.",
+        "classification_confidence": 0.58,
+        "recognized_text_excerpt": "",
+        "fields": [
+          {
+            "name": "material_name",
+            "label": "Название материала",
+            "value": "12,13 анкер, гайка"
+          },
+          {
+            "name": "document_name",
+            "label": "Название документа",
+            "value": "12,13 анкер, гайка.pdf"
+          }
+        ]
+      }
+    }
+  ]
+}

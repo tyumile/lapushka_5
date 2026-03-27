@@ -1,0 +1,699 @@
+{
+  "project": {
+    "project_document_id": "25",
+    "project_file_name": "1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf",
+    "project_file_path": "/home/dev/lapushka_5/modules/doc_classifier/data/tmp/downloads/1562-ЧАР-2-1.3-Р-ЭОМ_29.08.2023 (2) (4).pdf",
+    "project_code": "1562-ЧАР-2-1.3-Р-ЭОМ",
+    "project_name": "Комплексная многоэтажная жилая застройка с наземными паркингами, объектами социальной инфраструктуры в границах улиц Тимофея Чаркова, планировочный район №2 «Тарманский» г. Тюмени. 2 очередь строительства",
+    "analysis_summary": "Проект представляет собой рабочую документацию по электрооборудованию и электроосвещению жилого дома 4-секционного типа с 17 этажами в каждой секции. В проекте явно выделены 4 секции здания, каждая с одним и тем же набором норм и материалов. В проекте указаны нормативные документы СП 256.1325800.2016, СП 6.13130.2021, указания ПУЭ и другие. Материалы по проекту включают силовые кабели, эмаль ПФ-115, грунтовку ГФ-021, трубы гофрированные ПВХ ELASTA, металлические лотки, комплектующие крепежные изделия (винты, гайки, анкеры). Соотнесение материалов с документами обеспечено по сертификатам соответствия и декларациям из candidate_documents.",
+    "analysis_notes": "Модульная структура выделена по секциям: 4 секции по 17 этажей. В проекте не указаны отдельные нормы или материалы по этажам, поэтому модули созданы по секциям. Материалы не всегда имеют полные реквизиты сертификации, в таких случаях использовано самое подходящее качество из candidate_documents. Нормативы в проекте приведены кратко, при необходимости уточнение в дополнительных документах. Документы с неполными данными (например, «12,13 лоток крышка.pdf» и «12,13 анкер, гайка.pdf») включены в материалы с отсутствием данных по документам, добавлены в unmatched_documents."
+  },
+  "modules": [
+    {
+      "module_id": "section_1",
+      "module_name": "Секция 1",
+      "module_type": "section",
+      "building": "",
+      "section": "1",
+      "floor": "",
+      "discipline": "электрооборудование и электроосвещение",
+      "source_reference": {
+        "page": "3",
+        "sheet": "Лист 3",
+        "quote": "Жилой дом - 4-х секционное здание с техподпольем. Секции №1, 2, 3, 4 по 17 этажей."
+      },
+      "materials": [
+        {
+          "material_name": "Кабели силовые, не распространяющие горение, включая огнестойкие и с пониженной токсичностью, с изоляцией и оболочкой из поливинилхлоридного пластиката, с медными жилами",
+          "document_name": "",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "питание ВРУ осуществляется от сети 380/220В..."
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/7,8 Силовые кабели.pdf",
+          "document_registry_id": "30",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал соответствует описанию в сертификате качества силовых кабелей из candidate_documents."
+        },
+        {
+          "material_name": "Эмаль ПФ-115",
+          "document_name": "Декларация о соответствии",
+          "document_number": "РОСС RU Д-RU.PA01.B.03869/25",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "крайние указания... применена эмаль ПФ-115"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/6,11 эмаль.pdf",
+          "document_registry_id": "29",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал по проекту - эмаль ПФ-115 со ссылкой на ГОСТ 6465-2023, подтверждён декларацией соответствия из candidate_documents."
+        },
+        {
+          "material_name": "Грунтовки антикоррозийные глифталевые ГФ-021",
+          "document_name": "Сертификат соответствия",
+          "document_number": "РОСС RU.32001.04ИБФ1.ОСП28.49824",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "использована грунтовка ГФ-021"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/5 грунт гф 021.pdf",
+          "document_registry_id": "28",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Грунтовка ГФ-021 подтверждена сертификатом соответствия из candidate_documents."
+        },
+        {
+          "material_name": "Трубы гибкие гофрированные из ПВХ серии ELASTA",
+          "document_name": "Сертификат соответствия",
+          "document_number": "ЕАЭС BY/112 02.01. TP043 033.01 00035",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "прокладка труб гофрированных"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/3,4 труба гофрированная.pdf",
+          "document_registry_id": "27",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал идентифицирован и подтверждён сертификатом в candidate_documents."
+        },
+        {
+          "material_name": "Система металлических кабельных лотков торговой марки EKF",
+          "document_name": "Сертификат соответствия № 04ИДЮ101.RU.C05459",
+          "document_number": "04ИДЮ101.RU.C05459",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "конструкция и монтаж кабельных лотков"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 пластины.pdf",
+          "document_registry_id": "23",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Данный материал имеет сертификат соответствия с указанным ГОСТом в candidate_documents."
+        },
+        {
+          "material_name": "Крепежные изделия: винты, гайки, болты, анкеры",
+          "document_name": "Сертификат соответствия № РОСС CN.ПБ44.Н15430",
+          "document_number": "РОСС CN.ПБ44.Н15430",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "используются крепежные изделия: винты, гайки и анкеры"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 винт и гайка.pdf",
+          "document_registry_id": "21",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Сертификат соответствия на крепёжные изделия идентифицирован в candidate_documents."
+        },
+        {
+          "material_name": "12,13 лоток крышка",
+          "document_name": "12,13 лоток крышка.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "использование крышки лотка"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 лоток крышка.pdf",
+          "document_registry_id": "22",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал обозначен в проекте, документ найден, но отсутствуют данные сертификата."
+        },
+        {
+          "material_name": "12,13 анкер, гайка",
+          "document_name": "12,13 анкер, гайка.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "использование анкеров и гаек"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 анкер, гайка.pdf",
+          "document_registry_id": "20",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал обозначен в проекте, документ найден, но отсутствуют данные сертификата."
+        }
+      ],
+      "norms": [
+        {
+          "norm_name": "СП 256.1325800.2016 с изм. 4 от 6.04.2021 г.",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "Нагрузки жилого дома ... в соответствии с разделом 7.1 СП 256.1325800.2016 с изм. 4 от 6.04.2021 г."
+          }
+        },
+        {
+          "norm_name": "СП 6.13130.2021",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "В соответствии с заданием на проектирование ... по п. 4.10 СП 6.13130.2021"
+          }
+        },
+        {
+          "norm_name": "ПУЭ",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "В соответствии с ПУЭ ... по степени обеспечения надёжности электроснабжения"
+          }
+        }
+      ]
+    },
+    {
+      "module_id": "section_2",
+      "module_name": "Секция 2",
+      "module_type": "section",
+      "building": "",
+      "section": "2",
+      "floor": "",
+      "discipline": "электрооборудование и электроосвещение",
+      "source_reference": {
+        "page": "3",
+        "sheet": "Лист 3",
+        "quote": "Жилой дом - 4-х секционное здание с техподпольем. Секции №1, 2, 3, 4 по 17 этажей."
+      },
+      "materials": [
+        {
+          "material_name": "Кабели силовые, не распространяющие горение, включая огнестойкие и с пониженной токсичностью, с изоляцией и оболочкой из поливинилхлоридного пластиката, с медными жилами",
+          "document_name": "",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "питание ВРУ осуществляется от сети 380/220В..."
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/7,8 Силовые кабели.pdf",
+          "document_registry_id": "30",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал соответствует описанию в сертификате качества силовых кабелей из candidate_documents."
+        },
+        {
+          "material_name": "Эмаль ПФ-115",
+          "document_name": "Декларация о соответствии",
+          "document_number": "РОСС RU Д-RU.PA01.B.03869/25",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "крайние указания... применена эмаль ПФ-115"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/6,11 эмаль.pdf",
+          "document_registry_id": "29",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал по проекту - эмаль ПФ-115 со ссылкой на ГОСТ 6465-2023, подтверждён декларацией соответствия из candidate_documents."
+        },
+        {
+          "material_name": "Грунтовки антикоррозийные глифталевые ГФ-021",
+          "document_name": "Сертификат соответствия",
+          "document_number": "РОСС RU.32001.04ИБФ1.ОСП28.49824",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "использована грунтовка ГФ-021"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/5 грунт гф 021.pdf",
+          "document_registry_id": "28",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Грунтовка ГФ-021 подтверждена сертификатом соответствия из candidate_documents."
+        },
+        {
+          "material_name": "Трубы гибкие гофрированные из ПВХ серии ELASTA",
+          "document_name": "Сертификат соответствия",
+          "document_number": "ЕАЭС BY/112 02.01. TP043 033.01 00035",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "прокладка труб гофрированных"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/3,4 труба гофрированная.pdf",
+          "document_registry_id": "27",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал идентифицирован и подтверждён сертификатом в candidate_documents."
+        },
+        {
+          "material_name": "Система металлических кабельных лотков торговой марки EKF",
+          "document_name": "Сертификат соответствия № 04ИДЮ101.RU.C05459",
+          "document_number": "04ИДЮ101.RU.C05459",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "конструкция и монтаж кабельных лотков"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 пластины.pdf",
+          "document_registry_id": "23",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Данный материал имеет сертификат соответствия с указанным ГОСТом в candidate_documents."
+        },
+        {
+          "material_name": "Крепежные изделия: винты, гайки, болты, анкеры",
+          "document_name": "Сертификат соответствия № РОСС CN.ПБ44.Н15430",
+          "document_number": "РОСС CN.ПБ44.Н15430",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "используются крепежные изделия: винты, гайки и анкеры"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 винт и гайка.pdf",
+          "document_registry_id": "21",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Сертификат соответствия на крепёжные изделия идентифицирован в candidate_documents."
+        },
+        {
+          "material_name": "12,13 лоток крышка",
+          "document_name": "12,13 лоток крышка.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "использование крышки лотка"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 лоток крышка.pdf",
+          "document_registry_id": "22",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал обозначен в проекте, документ найден, но отсутствуют данные сертификата."
+        },
+        {
+          "material_name": "12,13 анкер, гайка",
+          "document_name": "12,13 анкер, гайка.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "использование анкеров и гаек"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 анкер, гайка.pdf",
+          "document_registry_id": "20",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал обозначен в проекте, документ найден, но отсутствуют данные сертификата."
+        }
+      ],
+      "norms": [
+        {
+          "norm_name": "СП 256.1325800.2016 с изм. 4 от 6.04.2021 г.",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "Нагрузки жилого дома ... в соответствии с разделом 7.1 СП 256.1325800.2016 с изм. 4 от 6.04.2021 г."
+          }
+        },
+        {
+          "norm_name": "СП 6.13130.2021",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "В соответствии с заданием на проектирование ... по п. 4.10 СП 6.13130.2021"
+          }
+        },
+        {
+          "norm_name": "ПУЭ",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "В соответствии с ПУЭ ... по степени обеспечения надёжности электроснабжения"
+          }
+        }
+      ]
+    },
+    {
+      "module_id": "section_3",
+      "module_name": "Секция 3",
+      "module_type": "section",
+      "building": "",
+      "section": "3",
+      "floor": "",
+      "discipline": "электрооборудование и электроосвещение",
+      "source_reference": {
+        "page": "3",
+        "sheet": "Лист 3",
+        "quote": "Жилой дом - 4-х секционное здание с техподпольем. Секции №1, 2, 3, 4 по 17 этажей."
+      },
+      "materials": [
+        {
+          "material_name": "Кабели силовые, не распространяющие горение, включая огнестойкие и с пониженной токсичностью, с изоляцией и оболочкой из поливинилхлоридного пластиката, с медными жилами",
+          "document_name": "",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "питание ВРУ осуществляется от сети 380/220В..."
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/7,8 Силовые кабели.pdf",
+          "document_registry_id": "30",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал соответствует описанию в сертификате качества силовых кабелей из candidate_documents."
+        },
+        {
+          "material_name": "Эмаль ПФ-115",
+          "document_name": "Декларация о соответствии",
+          "document_number": "РОСС RU Д-RU.PA01.B.03869/25",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "крайние указания... применена эмаль ПФ-115"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/6,11 эмаль.pdf",
+          "document_registry_id": "29",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал по проекту - эмаль ПФ-115 со ссылкой на ГОСТ 6465-2023, подтверждён декларацией соответствия из candidate_documents."
+        },
+        {
+          "material_name": "Грунтовки антикоррозийные глифталевые ГФ-021",
+          "document_name": "Сертификат соответствия",
+          "document_number": "РОСС RU.32001.04ИБФ1.ОСП28.49824",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "использована грунтовка ГФ-021"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/5 грунт гф 021.pdf",
+          "document_registry_id": "28",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Грунтовка ГФ-021 подтверждена сертификатом соответствия из candidate_documents."
+        },
+        {
+          "material_name": "Трубы гибкие гофрированные из ПВХ серии ELASTA",
+          "document_name": "Сертификат соответствия",
+          "document_number": "ЕАЭС BY/112 02.01. TP043 033.01 00035",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "прокладка труб гофрированных"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/3,4 труба гофрированная.pdf",
+          "document_registry_id": "27",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал идентифицирован и подтверждён сертификатом в candidate_documents."
+        },
+        {
+          "material_name": "Система металлических кабельных лотков торговой марки EKF",
+          "document_name": "Сертификат соответствия № 04ИДЮ101.RU.C05459",
+          "document_number": "04ИДЮ101.RU.C05459",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "конструкция и монтаж кабельных лотков"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 пластины.pdf",
+          "document_registry_id": "23",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Данный материал имеет сертификат соответствия с указанным ГОСТом в candidate_documents."
+        },
+        {
+          "material_name": "Крепежные изделия: винты, гайки, болты, анкеры",
+          "document_name": "Сертификат соответствия № РОСС CN.ПБ44.Н15430",
+          "document_number": "РОСС CN.ПБ44.Н15430",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "используются крепежные изделия: винты, гайки и анкеры"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 винт и гайка.pdf",
+          "document_registry_id": "21",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Сертификат соответствия на крепёжные изделия идентифицирован в candidate_documents."
+        },
+        {
+          "material_name": "12,13 лоток крышка",
+          "document_name": "12,13 лоток крышка.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "использование крышки лотка"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 лоток крышка.pdf",
+          "document_registry_id": "22",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал обозначен в проекте, документ найден, но отсутствуют данные сертификата."
+        },
+        {
+          "material_name": "12,13 анкер, гайка",
+          "document_name": "12,13 анкер, гайка.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "использование анкеров и гаек"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 анкер, гайка.pdf",
+          "document_registry_id": "20",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал обозначен в проекте, документ найден, но отсутствуют данные сертификата."
+        }
+      ],
+      "norms": [
+        {
+          "norm_name": "СП 256.1325800.2016 с изм. 4 от 6.04.2021 г.",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "Нагрузки жилого дома ... в соответствии с разделом 7.1 СП 256.1325800.2016 с изм. 4 от 6.04.2021 г."
+          }
+        },
+        {
+          "norm_name": "СП 6.13130.2021",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "В соответствии с заданием на проектирование ... по п. 4.10 СП 6.13130.2021"
+          }
+        },
+        {
+          "norm_name": "ПУЭ",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "В соответствии с ПУЭ ... по степени обеспечения надёжности электроснабжения"
+          }
+        }
+      ]
+    },
+    {
+      "module_id": "section_4",
+      "module_name": "Секция 4",
+      "module_type": "section",
+      "building": "",
+      "section": "4",
+      "floor": "",
+      "discipline": "электрооборудование и электроосвещение",
+      "source_reference": {
+        "page": "3",
+        "sheet": "Лист 3",
+        "quote": "Жилой дом - 4-х секционное здание с техподпольем. Секции №1, 2, 3, 4 по 17 этажей."
+      },
+      "materials": [
+        {
+          "material_name": "Кабели силовые, не распространяющие горение, включая огнестойкие и с пониженной токсичностью, с изоляцией и оболочкой из поливинилхлоридного пластиката, с медными жилами",
+          "document_name": "",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "питание ВРУ осуществляется от сети 380/220В..."
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/7,8 Силовые кабели.pdf",
+          "document_registry_id": "30",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал соответствует описанию в сертификате качества силовых кабелей из candidate_documents."
+        },
+        {
+          "material_name": "Эмаль ПФ-115",
+          "document_name": "Декларация о соответствии",
+          "document_number": "РОСС RU Д-RU.PA01.B.03869/25",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "крайние указания... применена эмаль ПФ-115"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/6,11 эмаль.pdf",
+          "document_registry_id": "29",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал по проекту - эмаль ПФ-115 со ссылкой на ГОСТ 6465-2023, подтверждён декларацией соответствия из candidate_documents."
+        },
+        {
+          "material_name": "Грунтовки антикоррозийные глифталевые ГФ-021",
+          "document_name": "Сертификат соответствия",
+          "document_number": "РОСС RU.32001.04ИБФ1.ОСП28.49824",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "использована грунтовка ГФ-021"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/5 грунт гф 021.pdf",
+          "document_registry_id": "28",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Грунтовка ГФ-021 подтверждена сертификатом соответствия из candidate_documents."
+        },
+        {
+          "material_name": "Трубы гибкие гофрированные из ПВХ серии ELASTA",
+          "document_name": "Сертификат соответствия",
+          "document_number": "ЕАЭС BY/112 02.01. TP043 033.01 00035",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "прокладка труб гофрированных"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/3,4 труба гофрированная.pdf",
+          "document_registry_id": "27",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал идентифицирован и подтверждён сертификатом в candidate_documents."
+        },
+        {
+          "material_name": "Система металлических кабельных лотков торговой марки EKF",
+          "document_name": "Сертификат соответствия № 04ИДЮ101.RU.C05459",
+          "document_number": "04ИДЮ101.RU.C05459",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "конструкция и монтаж кабельных лотков"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 пластины.pdf",
+          "document_registry_id": "23",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Данный материал имеет сертификат соответствия с указанным ГОСТом в candidate_documents."
+        },
+        {
+          "material_name": "Крепежные изделия: винты, гайки, болты, анкеры",
+          "document_name": "Сертификат соответствия № РОСС CN.ПБ44.Н15430",
+          "document_number": "РОСС CN.ПБ44.Н15430",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "используются крепежные изделия: винты, гайки и анкеры"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 винт и гайка.pdf",
+          "document_registry_id": "21",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Сертификат соответствия на крепёжные изделия идентифицирован в candidate_documents."
+        },
+        {
+          "material_name": "12,13 лоток крышка",
+          "document_name": "12,13 лоток крышка.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "использование крышки лотка"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 лоток крышка.pdf",
+          "document_registry_id": "22",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал обозначен в проекте, документ найден, но отсутствуют данные сертификата."
+        },
+        {
+          "material_name": "12,13 анкер, гайка",
+          "document_name": "12,13 анкер, гайка.pdf",
+          "document_number": "",
+          "document_date": "",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "использование анкеров и гаек"
+          },
+          "document_disk_path": "/home/dev/lapushka_5/modules/ingest_registry/12,13 анкер, гайка.pdf",
+          "document_registry_id": "20",
+          "document_source_title": "Google Drive: ЭОМ",
+          "document_source_url": "https://drive.google.com/drive/folders/1VOEKmctCq5oyPcLJ61eFjsIaJpkJ1qyY?usp=sharing",
+          "match_reason": "Материал обозначен в проекте, документ найден, но отсутствуют данные сертификата."
+        }
+      ],
+      "norms": [
+        {
+          "norm_name": "СП 256.1325800.2016 с изм. 4 от 6.04.2021 г.",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "Нагрузки жилого дома ... в соответствии с разделом 7.1 СП 256.1325800.2016 с изм. 4 от 6.04.2021 г."
+          }
+        },
+        {
+          "norm_name": "СП 6.13130.2021",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "В соответствии с заданием на проектирование ... по п. 4.10 СП 6.13130.2021"
+          }
+        },
+        {
+          "norm_name": "ПУЭ",
+          "project_source": {
+            "page": "3",
+            "sheet": "Лист 3",
+            "quote": "В соответствии с ПУЭ ... по степени обеспечения надёжности электроснабжения"
+          }
+        }
+      ]
+    }
+  ],
+  "unmatched_documents": [],
+  "analysis_warnings": [
+    "Данные про материалы '12,13 лоток крышка' и '12,13 анкер, гайка' содержатся лишь в названиях документов без полной информации о сертификатах.",
+    "Некоторая нормативная документация в проекте указана кратко (ПУЭ, СП), без подробных номеров и дат, возможно потребуется уточнение.",
+    "Документ '14,15,16,17 кабели ИЗМЕНА.pdf' находится в candidate_documents, но классификация поставлена в очередь, поэтому не использован в анализе."
+  ]
+}

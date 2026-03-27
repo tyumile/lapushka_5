@@ -15,14 +15,25 @@
 - не переносишь бизнес-логику процессников к себе;
 - не становишься заменой их локальных страниц.
 
+## Разделы shell
+- верхняя шапка на всех `shell`-маршрутах (`/`, `/cabinet/<cabinet_id>/sources`, `/cabinet/<cabinet_id>/documents`, `/cabinet/<cabinet_id>/project`) остаётся неизменной;
+- кнопки `Источники` / `Рабочая документация` / `Проект` не уводят с порта `8000`, а переключают shell на соответствующие маршруты и проксируют HTML модулей в общий layout;
+- подгрузка модулей происходит сервером, без `iframe`: `main.py` расширяет routing и переписывает ссылки/формы минимально необходимым образом;
+- перед новой навигацией shell сверяет текущие порты по runtime и документации (`8001`, `8002`, `8003`);
+
 ## Правила
 - общий фронт должен быть легким;
 - локальные модули должны оставаться автономными;
 - shell должен давать единое ощущение системы, а не ломать независимость модулей.
+- не расширяй существующие страницы, layout, маршруты, query-параметры и UI-блоки без прямого требования задачи;
+- не добавляй новые кнопки, секции, фильтры, колонки и служебные элементы, если пользователь явно не просил именно это;
+- не перестраивай уже готовые страницы shell, если задача требует только локального изменения.
 
 ## Команда task
 По команде `task` shell обязан:
-- сначала смотреть SQL-реестр задач как источник правды;
+- сначала смотреть SQL workflow-базу как источник правды;
+- сначала читать свою очередь через `./task mine --agent shell --cabinet-id <cabinet_id> --limit 20`;
+- если в очереди есть запись, брать ее как текущий handoff shell;
 - затем смотреть Google Sheets только как пользовательский дашборд;
 - показывать пользователю текущую картину задач, не подменяя собой реестр;
 - опираться только на новые записи и не изменять старые;
@@ -34,18 +45,20 @@
 - `.env` для `GOOGLE_SHEETS_DASHBOARD_ID` и `GOOGLE_SHEETS_DASHBOARD_URL`
 
 Куда записывать:
-- в SQL-таблицу `task_registry` через `./task add ...`;
+- в SQL-таблицы `tasks`, `task_handoffs`, `task_reviews`, `task_events` через `./task add ...`;
 - в Google Sheets только через `./task add ... --sync`;
 - руками в таблицу shell ничего не пишет.
 
 Команды:
-- смотреть задачи: `./task list --limit 20`
-- фиксировать наблюдение: `./task add ... --source-agent shell --sync`
+- смотреть свои задачи: `./task mine --agent shell --cabinet-id <cabinet_id> --limit 20`
+- смотреть карточку задачи: `./task show --task-id <task_id> --cabinet-id <cabinet_id>`
+- смотреть историю задачи: `./task list --task-id <task_id> --cabinet-id <cabinet_id> --limit 20`
+- фиксировать наблюдение: `./task add ... --cabinet-id <cabinet_id> --source-agent shell --sync`
 
 Обязательное правило:
-- перед пользовательским handoff читать задачи через `./task list --limit 20`;
-- после наблюдения, handoff, blocker или ошибки выполнять `./task add ... --source-agent shell --sync`;
+- перед пользовательским handoff читать задачи через `./task mine --agent shell --cabinet-id <cabinet_id> --limit 20`;
+- после наблюдения, handoff, blocker или ошибки выполнять `./task add ... --cabinet-id <cabinet_id> --source-agent shell --sync`;
 - не завершать работу shell без записи в реестр задач.
 
 Шаблон записи:
-`./task add --task-id <task_id> --source-agent shell --target-agent <next_agent_or_shell> --module-name shell --action-type progress --summary "<что увидел или передал>" --status <status> --artifacts "<paths>" --sync`
+`./task add --task-id <task_id> --cabinet-id <cabinet_id> --source-agent shell --target-agent <next_agent_or_shell> --module-name shell --action-type progress --summary "<что увидел или передал>" --status <status> --artifacts "<paths>" --sync`
